@@ -12,6 +12,7 @@ import { initServerStatus } from './serverStatus.js';
 import { initContactTicket } from './contactTicket.js';
 import { initKleosDemo } from './kleosDemo.js';
 import { initGuideModal } from './guideModal.js';
+import { initReferences } from './references.js';
 import { initMiniGameTriggers } from './minigames.js';
 import { initTechnobladeSwap } from './technoblade.js';
 
@@ -48,6 +49,7 @@ function initYear() {
   initContactTicket();
   initKleosDemo();
   initGuideModal();
+  initReferences();
   initMiniGameTriggers();
   initTechnobladeSwap();
 })();

@@ -486,6 +486,39 @@ section {
   font-family: var(--mono);
 }
 
+/* ---------- references ---------- */
+.grid-references {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.reference-card .ref-discord {
+  margin-top: 18px;
+}
+
+.reference-card .ref-discord .ref-username {
+  transition: color .2s;
+}
+
+.reference-card .ref-discord.ref-pranked .ref-username {
+  color: var(--accent);
+  animation: ref-prank-flash 1.2s ease-in-out;
+}
+
+@keyframes ref-prank-flash {
+  0%, 100% { opacity: 1; }
+  25% { opacity: .25; }
+  50% { opacity: 1; }
+  75% { opacity: .25; }
+}
+
+@media (max-width: 620px) {
+  .grid-references { grid-template-columns: 1fr; }
+}
+
 /* ---------- skills ---------- */
 .grid-skills {
   display: grid;
