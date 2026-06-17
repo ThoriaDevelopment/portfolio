@@ -499,6 +499,7 @@
           <li><strong>Konami code:</strong> ↑ ↑ ↓ ↓ ← → ← → B A</li>
           <li><strong>Type <code>thoria</code>:</strong> anywhere outside an input field.</li>
           <li><strong>Press <code>~</code> / <code>`</code>:</strong> toggles the terminal.</li>
+          <li><strong>Press <code>F4</code>:</strong> also toggles the terminal.</li>
         </ul>
         <p>Available commands:</p>
         <div class="guide-table-wrap">
@@ -515,6 +516,9 @@
               <tr><td><code>sound</code></td><td>Toggle sound.</td></tr>
               <tr><td><code>status</code></td><td>Scroll to server status pills.</td></tr>
               <tr><td><code>whoami</code></td><td>Print a short bio.</td></tr>
+              <tr><td><code>whack</code></td><td>Play Whack-a-Block.</td></tr>
+              <tr><td><code>memory</code></td><td>Play MineMatch.</td></tr>
+              <tr><td><code>snake</code></td><td>Play Emerald Run.</td></tr>
             </tbody>
           </table>
         </div>
@@ -529,8 +533,23 @@
         <p><strong>Achievement:</strong> Clicking the hero area unlocks <strong>Block Breaker</strong>.</p>
       </section>
 
+      <section class="guide-section" data-keywords="mini-games whack memory snake arcade">
+        <h3><span class="guide-num">03</span> Secret Mini-games</h3>
+        <p>Three hidden games are tucked into the page. They are desktop-only and can also be launched from the terminal.</p>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead><tr><th>Game</th><th>Hidden trigger</th><th>Terminal command</th><th>Unlock badge</th></tr></thead>
+            <tbody>
+              <tr><td>Whack-a-Block</td><td>Click the tiny pulsing dirt speck in the hero area.</td><td><code>whack</code></td><td>Prospector (100+ pts)</td></tr>
+              <tr><td>MineMatch</td><td>Click the <code>2026</code> year in the footer copyright.</td><td><code>memory</code></td><td>Archaeologist (clear it)</td></tr>
+              <tr><td>Emerald Run</td><td>Click the first Kleos gallery thumbnail while it flickers emerald.</td><td><code>snake</code></td><td>Serpent Miner (30+ pts)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="guide-section" data-keywords="achievement badges unlock toast localstorage explore">
-        <h3><span class="guide-num">03</span> Achievement Badges</h3>
+        <h3><span class="guide-num">04</span> Achievement Badges</h3>
         <p>Badges unlock automatically as you explore. A toast appears top-right and progress is saved in <code>localStorage.thoria-achievements</code>.</p>
         <div class="guide-table-wrap">
           <table class="guide-table">
@@ -544,6 +563,9 @@
               <tr><td>Block Breaker</td><td>Click the hero/section area to interact with falling blocks.</td></tr>
               <tr><td>Speedrunner</td><td>Reach the footer/contact section within ~25 seconds of load.</td></tr>
               <tr><td>Commander</td><td>Open the hidden terminal.</td></tr>
+              <tr><td>Prospector</td><td>Score 100+ in Whack-a-Block.</td></tr>
+              <tr><td>Archaeologist</td><td>Clear MineMatch memory game.</td></tr>
+              <tr><td>Serpent Miner</td><td>Score 30+ in Emerald Run.</td></tr>
             </tbody>
           </table>
         </div>
@@ -562,10 +584,13 @@
           <table class="guide-table">
             <thead><tr><th>#</th><th>Secret</th><th>Try this</th></tr></thead>
             <tbody>
-              <tr><td>1</td><td>Terminal</td><td>Type thoria or press Konami</td></tr>
+              <tr><td>1</td><td>Terminal</td><td>Type thoria, press F4, or use Konami</td></tr>
               <tr><td>2</td><td>Falling blocks</td><td>Move mouse + click in hero</td></tr>
-              <tr><td>3</td><td>Achievements</td><td>Unlock Commander + one more, check localStorage</td></tr>
-              <tr><td>4</td><td>Hire bar</td><td>Scroll to ~50%, dock opens</td></tr>
+              <tr><td>3</td><td>Whack-a-Block</td><td>Click the dirt speck in hero</td></tr>
+              <tr><td>4</td><td>MineMatch</td><td>Click the year in footer</td></tr>
+              <tr><td>5</td><td>Emerald Run</td><td>Click flickering Kleos gallery thumb</td></tr>
+              <tr><td>6</td><td>Achievements</td><td>Unlock Commander + one more, check localStorage</td></tr>
+              <tr><td>7</td><td>Hire bar</td><td>Scroll to ~50%, dock opens</td></tr>
             </tbody>
           </table>
         </div>
@@ -574,7 +599,7 @@
       <div class="guide-empty">No secrets match your search.</div>
     </div>
     <footer class="guide-footer">
-      <span class="guide-count" id="guideCount">4 secrets</span>
+      <span class="guide-count" id="guideCount">7 secrets</span>
       <button class="btn btn-ghost" type="button" data-guide-close>Close</button>
     </footer>
   </div>

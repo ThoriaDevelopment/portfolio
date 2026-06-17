@@ -1,0 +1,427 @@
+import { unlock } from './achievements.js';
+
+const ASSET_BASE = 'Assets/Minecraft/assets/minecraft/textures';
+const BLOCKS = {
+  coal:     `${ASSET_BASE}/block/coal_block.png`,
+  iron:     `${ASSET_BASE}/block/iron_block.png`,
+  gold:     `${ASSET_BASE}/block/gold_block.png`,
+  redstone: `${ASSET_BASE}/block/redstone_block.png`,
+  lapis:    `${ASSET_BASE}/block/lapis_ore.png`,
+  diamond:  `${ASSET_BASE}/block/diamond_block.png`,
+  emerald:  `${ASSET_BASE}/block/emerald_block.png`
+};
+const ITEMS = {
+  emerald: `${ASSET_BASE}/item/emerald.png`,
+  diamond: `${ASSET_BASE}/item/diamond.png`,
+  coal:    `${ASSET_BASE}/item/coal.png`
+};
+
+let activeGame = null;
+let cleanupFn = null;
+
+function wrap() {
+  let el = document.getElementById('mgOverlay');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'mgOverlay';
+    el.className = 'mg-overlay';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.setAttribute('aria-label', 'Mini-game');
+    el.innerHTML = `
+      <button class="mg-close" type="button" aria-label="Close game">×</button>
+      <div class="mg-stage" id="mgStage"></div>
+    `;
+    document.body.appendChild(el);
+    el.querySelector('.mg-close').addEventListener('click', stopGame);
+    el.addEventListener('click', (e) => { if (e.target === el) stopGame(); });
+  }
+  el.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  return {
+    overlay: el,
+    stage: el.querySelector('#mgStage')
+  };
+}
+
+export function stopGame() {
+  if (cleanupFn) { cleanupFn(); cleanupFn = null; }
+  activeGame = null;
+  const el = document.getElementById('mgOverlay');
+  if (el) el.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showStart(title, desc, onStart) {
+  const { stage } = wrap();
+  stage.innerHTML = `
+    <div class="mg-intro">
+      <h3>${title}</h3>
+      <p>${desc}</p>
+      <button class="btn btn-primary mg-start" type="button">Play</button>
+    </div>
+  `;
+  stage.querySelector('.mg-start').addEventListener('click', () => {
+    onStart();
+  });
+}
+
+/* ---------- Whack-a-Block ---------- */
+export function startWhack() {
+  if (activeGame) return;
+  activeGame = 'whack';
+  showStart('Whack-a-Block', 'Click the ore blocks before they disappear. Diamond and emerald are worth more points.', runWhack);
+}
+
+function runWhack() {
+  const { stage } = wrap();
+  const scoreEl = document.createElement('div');
+  scoreEl.className = 'mg-score';
+  scoreEl.textContent = 'Score: 0';
+  stage.parentElement.appendChild(scoreEl);
+
+  let score = 0;
+  let spawns = 0;
+  const maxSpawns = 20;
+  let timeoutIds = [];
+  const ores = [
+    { key: 'coal', points: 10 },
+    { key: 'iron', points: 15 },
+    { key: 'gold', points: 20 },
+    { key: 'redstone', points: 25 },
+    { key: 'lapis', points: 30 },
+    { key: 'diamond', points: 50 },
+    { key: 'emerald', points: 75 }
+  ];
+
+  stage.innerHTML = `
+    <div class="mg-whack-field" id="mgWhackField"></div>
+    <div class="mg-timer" id="mgTimer">20s</div>
+  `;
+
+  const field = stage.querySelector('#mgWhackField');
+  const timerEl = stage.querySelector('#mgTimer');
+
+  let timeLeft = 20;
+  const timerInt = setInterval(() => {
+    timeLeft--;
+    timerEl.textContent = `${timeLeft}s`;
+    if (timeLeft <= 0) endWhack(score);
+  }, 1000);
+  timeoutIds.push(timerInt);
+
+  function spawn() {
+    if (spawns >= maxSpawns) return;
+    spawns++;
+    const ore = ores[Math.floor(Math.random() * ores.length)];
+    const el = document.createElement('button');
+    el.className = 'mg-block';
+    el.type = 'button';
+    el.style.left = `${10 + Math.random() * 80}%`;
+    el.style.top = `${10 + Math.random() * 75}%`;
+    el.style.backgroundImage = `url(${BLOCKS[ore.key]})`;
+    el.setAttribute('aria-label', ore.key);
+    el.style.transform = 'scale(0)';
+    field.appendChild(el);
+
+    requestAnimationFrame(() => { el.style.transform = 'scale(1)'; });
+
+    let hit = false;
+    el.addEventListener('click', () => {
+      if (hit) return;
+      hit = true;
+      score += ore.points;
+      scoreEl.textContent = `Score: ${score}`;
+      el.style.transform = 'scale(1.3)';
+      el.style.opacity = '0';
+      setTimeout(() => el.remove(), 150);
+    });
+
+    const life = setTimeout(() => {
+      if (!hit) {
+        el.style.transform = 'scale(0)';
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 150);
+      }
+    }, 900 + Math.random() * 700);
+    timeoutIds.push(life);
+
+    if (spawns < maxSpawns) {
+      const next = setTimeout(spawn, 500 + Math.random() * 500);
+      timeoutIds.push(next);
+    }
+  }
+
+  const starter = setTimeout(spawn, 400);
+  timeoutIds.push(starter);
+
+  cleanupFn = () => {
+    timeoutIds.forEach(id => clearTimeout(id));
+    scoreEl.remove();
+  };
+
+  function endWhack(finalScore) {
+    stopGame();
+    if (finalScore >= 100) unlock('prospector');
+    setTimeout(() => {
+      alert(`Whack-a-Block finished! Score: ${finalScore}`);
+    }, 100);
+  }
+}
+
+/* ---------- MineMatch Memory ---------- */
+const MEMORY_CARDS = ['diamond', 'emerald', 'coal', 'iron', 'gold', 'redstone'];
+export function startMemory() {
+  if (activeGame) return;
+  activeGame = 'memory';
+  showStart('MineMatch', 'Flip cards to find matching Minecraft ores. Match all pairs.', runMemory);
+}
+
+function runMemory() {
+  const { stage } = wrap();
+  const pairs = [...MEMORY_CARDS, ...MEMORY_CARDS].sort(() => Math.random() - 0.5);
+  let moves = 0;
+  let matched = 0;
+  let flipped = [];
+  let locked = false;
+
+  stage.innerHTML = `
+    <div class="mg-memory">
+      <div class="mg-memory-grid" id="mgMemoryGrid"></div>
+      <div class="mg-status" id="mgStatus">Moves: 0 · Pairs: 0/6</div>
+    </div>
+  `;
+
+  const grid = stage.querySelector('#mgMemoryGrid');
+  const status = stage.querySelector('#mgStatus');
+
+  pairs.forEach((type, i) => {
+    const card = document.createElement('button');
+    card.className = 'mg-memory-card';
+    card.type = 'button';
+    card.dataset.type = type;
+    card.dataset.index = i;
+    card.setAttribute('aria-label', 'Hidden card');
+    card.style.backgroundImage = `url(${BLOCKS.stone})`;
+    grid.appendChild(card);
+
+    card.addEventListener('click', () => {
+      if (locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+      card.classList.add('flipped');
+      card.style.backgroundImage = `url(${BLOCKS[type]})`;
+      card.setAttribute('aria-label', type);
+      flipped.push(card);
+
+      if (flipped.length === 2) {
+        moves++;
+        locked = true;
+        const [a, b] = flipped;
+        if (a.dataset.type === b.dataset.type) {
+          matched++;
+          status.textContent = `Moves: ${moves} · Pairs: ${matched}/6`;
+          a.classList.add('matched');
+          b.classList.add('matched');
+          flipped = [];
+          locked = false;
+          if (matched === 6) {
+            setTimeout(() => {
+              stopGame();
+              unlock('archaeologist');
+              alert(`MineMatch cleared in ${moves} moves!`);
+            }, 400);
+          }
+        } else {
+          status.textContent = `Moves: ${moves} · Pairs: ${matched}/6`;
+          setTimeout(() => {
+            a.classList.remove('flipped');
+            b.classList.remove('flipped');
+            a.style.backgroundImage = `url(${BLOCKS.stone})`;
+            b.style.backgroundImage = `url(${BLOCKS.stone})`;
+            a.setAttribute('aria-label', 'Hidden card');
+            b.setAttribute('aria-label', 'Hidden card');
+            flipped = [];
+            locked = false;
+          }, 700);
+        }
+      }
+    });
+  });
+
+  cleanupFn = () => {};
+}
+
+/* ---------- Emerald Run (Snake) ---------- */
+export function startSnake() {
+  if (activeGame) return;
+  activeGame = 'snake';
+  showStart('Emerald Run', 'Use arrow keys to guide the snake. Collect emeralds. Don\'t hit the walls or yourself.', runSnake);
+}
+
+function runSnake() {
+  const { stage } = wrap();
+  const rows = 15;
+  const cols = 20;
+  const cellSize = 22;
+  let snake = [{ x: 3, y: 7 }];
+  let dir = { x: 1, y: 0 };
+  let nextDir = { x: 1, y: 0 };
+  let food = null;
+  let score = 0;
+  let gameLoop = null;
+  let tick = 120;
+
+  stage.innerHTML = `
+    <div class="mg-snake">
+      <div class="mg-snake-board" id="mgSnakeBoard" style="--cols:${cols};--rows:${rows};--cell:${cellSize}px"></div>
+      <div class="mg-score" id="mgSnakeScore">Score: 0</div>
+      <p class="mg-hint">Arrow keys to move · Space to pause</p>
+    </div>
+  `;
+
+  const board = stage.querySelector('#mgSnakeBoard');
+  const scoreEl = stage.querySelector('#mgSnakeScore');
+
+  function cell(x, y) {
+    let el = board.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'mg-snake-cell';
+      el.dataset.x = x;
+      el.dataset.y = y;
+      el.style.width = `${cellSize}px`;
+      el.style.height = `${cellSize}px`;
+      board.appendChild(el);
+    }
+    return el;
+  }
+
+  function placeFood() {
+    let pos;
+    do {
+      pos = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
+    } while (snake.some(s => s.x === pos.x && s.y === pos.y));
+    food = pos;
+  }
+
+  function draw() {
+    board.querySelectorAll('.mg-snake-cell').forEach(c => {
+      c.className = 'mg-snake-cell';
+      c.style.backgroundImage = '';
+    });
+    snake.forEach((s, i) => {
+      const c = cell(s.x, s.y);
+      c.classList.add(i === 0 ? 'snake-head' : 'snake-body');
+      if (i === 0) c.style.backgroundImage = `url(${ITEMS.emerald})`;
+    });
+    if (food) {
+      const c = cell(food.x, food.y);
+      c.classList.add('snake-food');
+      c.style.backgroundImage = `url(${ITEMS.emerald})`;
+    }
+  }
+
+  function step() {
+    dir = nextDir;
+    const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+    if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows || snake.some(s => s.x === head.x && s.y === head.y)) {
+      endSnake(score);
+      return;
+    }
+    snake.unshift(head);
+    if (food && head.x === food.x && head.y === food.y) {
+      score += 10;
+      scoreEl.textContent = `Score: ${score}`;
+      placeFood();
+    } else {
+      snake.pop();
+    }
+    draw();
+  }
+
+  function endSnake(finalScore) {
+    stopGame();
+    if (finalScore >= 30) unlock('serpent_miner');
+    setTimeout(() => alert(`Emerald Run over! Score: ${finalScore}`), 100);
+  }
+
+  placeFood();
+  draw();
+  gameLoop = setInterval(step, tick);
+
+  function onKey(e) {
+    if (e.key === 'Escape') { stopGame(); return; }
+    if (e.key === ' ') { e.preventDefault(); return; }
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      e.preventDefault();
+      const map = {
+        ArrowUp: { x: 0, y: -1 },
+        ArrowDown: { x: 0, y: 1 },
+        ArrowLeft: { x: -1, y: 0 },
+        ArrowRight: { x: 1, y: 0 }
+      };
+      const nd = map[e.key];
+      if (nd.x === -dir.x && nd.y === -dir.y) return;
+      nextDir = nd;
+    }
+  }
+  document.addEventListener('keydown', onKey);
+
+  cleanupFn = () => {
+    clearInterval(gameLoop);
+    document.removeEventListener('keydown', onKey);
+  };
+}
+
+/* ---------- Subtle triggers on the page ---------- */
+export function initMiniGameTriggers() {
+  // 1. A tiny dirt speck in the hero background starts Whack-a-Block.
+  const hero = document.querySelector('.hero');
+  if (hero && !document.getElementById('mgDirtSpeck')) {
+    const speck = document.createElement('button');
+    speck.id = 'mgDirtSpeck';
+    speck.className = 'mg-trigger mg-dirt-speck';
+    speck.type = 'button';
+    speck.setAttribute('aria-label', 'A suspicious dirt speck');
+    speck.title = '?';
+    hero.appendChild(speck);
+    speck.addEventListener('click', (e) => { e.stopPropagation(); startWhack(); });
+  }
+
+  // 2. The year in the footer copyright launches MineMatch.
+  const yearEl = document.getElementById('year');
+  if (yearEl && !yearEl.dataset.mg) {
+    yearEl.dataset.mg = 'memory';
+    yearEl.classList.add('mg-trigger-year');
+    yearEl.addEventListener('click', (e) => { e.stopPropagation(); startMemory(); });
+  }
+
+  // 3. One Kleos gallery thumbnail occasionally flickers to an emerald block; clicking it starts Snake.
+  const kleosGallery = document.querySelector('[data-gallery="kleos"]');
+  if (kleosGallery) {
+    const thumb = kleosGallery.querySelector('.gallery-thumb');
+    if (thumb && !thumb.dataset.mgSnake) {
+      thumb.dataset.mgSnake = '1';
+      thumb.classList.add('mg-trigger-snake');
+      thumb.addEventListener('click', (e) => {
+        if (thumb.classList.contains('mg-flicker-ready')) {
+          e.stopPropagation();
+          e.preventDefault();
+          startSnake();
+        }
+      });
+      setInterval(() => {
+        thumb.classList.add('mg-flicker-ready');
+        const img = thumb.querySelector('img');
+        const original = img?.src;
+        if (img) img.src = BLOCKS.emerald_block;
+        setTimeout(() => {
+          thumb.classList.remove('mg-flicker-ready');
+          if (img && original) img.src = original;
+        }, 250);
+      }, 7000 + Math.random() * 5000);
+    }
+  }
+}
+
+// Allow global access for terminal commands
+window.__ThoriaMiniGames = { whack: startWhack, memory: startMemory, snake: startSnake };

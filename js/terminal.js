@@ -59,6 +59,9 @@ export function initTerminal() {
         print('  sound       — toggle sound');
         print('  status      — check server statuses');
         print('  whoami      — about Thoria');
+        print('  whack       — play Whack-a-Block mini-game');
+        print('  memory      — play MineMatch mini-game');
+        print('  snake       — play Emerald Run mini-game');
       },
       hire: () => { close(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
       discord: () => { copyToClipboard('@inrising'); print('Copied @inrising to clipboard.'); },
@@ -79,7 +82,10 @@ export function initTerminal() {
       theme: () => { const t = document.getElementById('themeToggle'); if (t) t.click(); print('Theme cycled via theme switcher.'); },
       sound: () => { document.getElementById('soundToggle')?.click(); print('Sound toggled.'); },
       status: () => { close(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); print('Scroll to Experience for live status pills.'); },
-      whoami: () => { print('Thoria — Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); }
+      whoami: () => { print('Thoria — Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); },
+      whack: () => { close(); window.__ThoriaMiniGames?.whack(); },
+      memory: () => { close(); window.__ThoriaMiniGames?.memory(); },
+      snake: () => { close(); window.__ThoriaMiniGames?.snake(); }
     };
 
     if (cmds[cmd]) cmds[cmd]();
@@ -109,6 +115,10 @@ export function initTerminal() {
     if (keys.join(',') === KONAMI.join(',')) open();
 
     if (e.key === '~' || e.key === '`') {
+      e.preventDefault();
+      terminal.classList.contains('open') ? close() : open();
+    }
+    if (e.key === 'F4') {
       e.preventDefault();
       terminal.classList.contains('open') ? close() : open();
     }

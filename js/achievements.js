@@ -8,7 +8,10 @@ const ACHIEVEMENTS = {
   sonic_explorer: { id: 'sonic_explorer', title: 'Sonic Explorer', desc: 'Toggled sound on.', icon: '🎵' },
   block_breaker: { id: 'block_breaker', title: 'Block Breaker', desc: 'Interacted with the falling blocks.', icon: '⛏' },
   speedrunner: { id: 'speedrunner', title: 'Speedrunner', desc: 'Reached the contact section quickly.', icon: '⏱️' },
-  commander: { id: 'commander', title: 'Commander', desc: 'Opened the hidden terminal.', icon: '⌨️' }
+  commander: { id: 'commander', title: 'Commander', desc: 'Opened the hidden terminal.', icon: '⌨️' },
+  prospector: { id: 'prospector', title: 'Prospector', desc: 'Scored 100+ in Whack-a-Block.', icon: '💎' },
+  archaeologist: { id: 'archaeologist', title: 'Archaeologist', desc: 'Cleared MineMatch memory game.', icon: '🧩' },
+  serpent_miner: { id: 'serpent_miner', title: 'Serpent Miner', desc: 'Scored 30+ in Emerald Run.', icon: '🐍' }
 };
 
 let unlocked = new Set();
