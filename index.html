@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thoria — Minecraft Server Administrator &amp; Media Manager</title>
+<meta name="description" content="Thoria — Minecraft server administrator and media manager with 3 years running 400–1000+ player networks. Moderation, security, creator media, and the Kleos dashboard." />
+<meta name="author" content="Thoria" />
+<meta name="theme-color" content="#0F1115" />
+<meta property="og:title" content="Thoria — Minecraft Server Administrator & Media Manager" />
+<meta property="og:description" content="3 years running 400–1000+ player Minecraft networks — moderation, security, and creator media at scale." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="Assets/Kleos/Kleos.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="Assets/Kleos/Kleos.png" />
+<link rel="icon" href="Assets/Thoria/inrising.png" />
+<link rel="apple-touch-icon" href="Assets/Thoria/inrising.png" />
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/effects.css" />
+<link rel="stylesheet" href="css/kleos-demo.css" />
+<link rel="stylesheet" href="css/themes/default.css" />
+<link rel="stylesheet" href="css/themes/minecraft.css" />
+<link rel="stylesheet" href="css/themes/light.css" />
+</head>
+<body>
+<canvas id="blocks" aria-hidden="true"></canvas>
+
+<div class="layer">
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Thoria<span class="brand-dot">_</span></a>
+      <nav class="nav-links">
+        <a href="#bio">Bio</a>
+        <a href="#experience">Experience</a>
+        <a href="#kleos">Build</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Theme: Default">
+        <span class="theme-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </span>
+      </button>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="Toggle sound" title="Sound off">
+        <svg class="snd-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+        <svg class="snd-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/thoriadevelopment" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner wrap">
+      <p class="eyebrow reveal">⛏ SERVER ADMIN · MEDIA MANAGER</p>
+      <div class="hero-name-row reveal">
+        <img class="hero-avatar" src="Assets/Thoria/inrising.png" alt="Thoria" width="84" height="84" />
+        <h1 class="name"><span id="typeName">Thoria</span></h1>
+      </div>
+      <p class="title reveal">Minecraft Server Administrator &amp; Media Manager</p>
+      <p class="lead reveal">3 years running 400–1000+ player Minecraft networks. 42k+ Discord moderated, 600+ tickets handled, and author of ArchMC's Community Guidelines — moderation, security, and creator media at scale.</p>
+      <p class="loc reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        EU · Turkey
+      </p>
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#experience">View Experience</a>
+        <a class="btn btn-ghost" href="https://github.com/thoriadevelopment" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="socials reveal">
+        <button class="chip" data-copy="@inrising" type="button" title="Copy Discord username">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.25.5a18 18 0 0 1 4.3 1.4 16.5 16.5 0 0 0-15 0A18 18 0 0 1 8.85 3.5L8.6 3a19.8 19.8 0 0 0-4.9 1.4C.6 9 .1 13.5.1 18a19.8 19.8 0 0 0 6 3l.5-.7a13 13 0 0 1-2-1l.5-.36A14.2 14.2 0 0 0 12 20.4a14.2 14.2 0 0 0 6.4-1.46l.5.36a13 13 0 0 1-2 1l.5.7a19.8 19.8 0 0 0 6-3c0-4.5-.5-9-3.6-13.6zM8.3 15.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm7.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>
+          <span class="chip-label">Discord @inrising</span>
+        </button>
+        <a class="chip" href="https://youtube.com/@inrisings" target="_blank" rel="noopener" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+          YouTube
+        </a>
+        <a class="chip" href="https://github.com/thoriadevelopment" target="_blank" rel="noopener" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a class="chip" href="mailto:officialthoria@gmail.com" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section id="bio">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Bio</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="bio-grid">
+        <div class="bio-copy reveal">
+          <p>I'm <strong>Thoria</strong> — a Minecraft server administrator and media manager with <strong>three years</strong> of experience running networks that hold between <strong>400+ and 1000+ average concurrent players</strong>. I built <a href="https://github.com/thoriadevelopment/Kleos" target="_blank" rel="noopener">Kleos</a>, a media-management tool that tracks multiple content creators across multiple servers from a single dashboard, and I've managed <strong>30+ creators</strong> to date.</p>
+          <p>I lead staff teams of up to 22 and I'm known as a genuinely <strong>reachable</strong> management member — the person creators and staff actually talk to. I work in Python and JavaScript for tooling, and I care about clean process: I wrote ArchMC's current Community Guidelines and built the JS algorithm that allocates creator payouts systematically.</p>
+        </div>
+        <aside class="bio-side reveal">
+          <h3>Languages</h3>
+          <div class="lang"><span>Turkish · native</span><span>English · fluent (7 yrs)</span></div>
+          <h3>Tooling</h3>
+          <p class="mini"><b>Python</b> &amp; <b>JavaScript</b> for internal tools · author of <b>Kleos</b> · systematic payout algorithms · staff hiring &amp; onboarding.</p>
+        </aside>
+      </div>
+
+      <div class="stats reveal-grid">
+        <div class="stat reveal" data-count="3" data-suffix="+"><b>3+</b><span>Years in admin</span></div>
+        <div class="stat reveal" data-count="1" data-suffix="k+"><b>1k+</b><span>Avg. players</span></div>
+        <div class="stat reveal" data-count="30" data-suffix="+"><b>30+</b><span>Creators managed</span></div>
+        <div class="stat reveal" data-count="42" data-suffix="k+"><b>42k+</b><span>Discord moderated</span></div>
+        <div class="stat reveal" data-count="600" data-suffix="+"><b>600+</b><span>Tickets handled</span></div>
+        <div class="stat reveal" data-count="2.7" data-suffix="k+"><b>2.7k+</b><span>Punishments</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Experience</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="outstrip reveal">
+        <span><b>100+</b> bugs documented</span>
+        <span><b>~70</b> screenshares</span>
+        <span><b>5</b> build projects</span>
+        <span><b>600+</b> tickets handled</span>
+      </div>
+
+      <div class="server-status reveal" style="margin-bottom:24px">
+        <p style="font-family:var(--mono);font-size:.75rem;color:var(--muted-2);margin-bottom:10px;text-transform:uppercase;letter-spacing:.03em">Live server status</p>
+        <div id="serverStatus" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+      </div>
+
+      <div class="timeline">
+
+        <article class="role reveal">
+          <div class="role-head">
+            <h3>Administrator &amp; Media Manager <span class="org">· ArchMC Network</span></h3>
+            <span class="badge">~1k avg players</span>
+          </div>
+          <p class="meta">2024 — 2026</p>
+          <ul>
+            <li>Moderated a <b>42k+ member</b> Discord community.</li>
+            <li>Led a staff team of <b>22</b>, plus 8 commissioned builders and 2 partnered paid creators.</li>
+            <li>Documented <b>100+ bugs</b>, including critical vulnerabilities.</li>
+            <li>Built a <b>JavaScript algorithm</b> that systematically allocates payouts to media creators.</li>
+            <li>Served as an allocated screensharer — <b>~70 manual screenshares</b> with Echo &amp; Ocean.</li>
+            <li>Handled <b>600+ support tickets</b>; issued ~2,500 punishments.</li>
+            <li>Authored ArchMC's current official <b>Community Guidelines</b>.</li>
+          </ul>
+          <div class="proof">
+            <span class="proof-label">⛏ Verified proof</span>
+            <div class="proof-thumbs reveal-grid">
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="archmc" data-lb-src="Assets/ArchMC/Position%20Proof.png" data-lb-caption="ArchMC — Position proof (admin rank)" aria-label="ArchMC position proof — open larger">
+                <img src="Assets/ArchMC/Position%20Proof.png" alt="ArchMC administrator position proof" loading="lazy" />
+                <span class="proof-cap">Position</span>
+              </button>
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="archmc" data-lb-src="Assets/ArchMC/Server%20Proof.png" data-lb-caption="ArchMC — Server proof (community / scale)" aria-label="ArchMC server proof — open larger">
+                <img src="Assets/ArchMC/Server%20Proof.png" alt="ArchMC server proof" loading="lazy" />
+                <span class="proof-cap">Server</span>
+              </button>
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="archmc" data-lb-src="Assets/ArchMC/Minecraft%20Proof.png" data-lb-caption="ArchMC — In-game proof" aria-label="ArchMC in-game proof — open larger">
+                <img src="Assets/ArchMC/Minecraft%20Proof.png" alt="ArchMC in-game proof" loading="lazy" />
+                <span class="proof-cap">In-game</span>
+              </button>
+            </div>
+            <div class="proof-links">
+              <a class="chip" href="https://discord.gg/archmc" target="_blank" rel="noopener">Discord ↗</a>
+              <span class="chip chip-static">IP · arch.mc</span>
+            </div>
+            <button class="doc-card" type="button" data-pdf="Assets/Community%20Guidelines%20From%20ArchMC/Community%20Guidelines.pdf" data-pdf-caption="ArchMC Community Guidelines — authored by Thoria" aria-label="Preview ArchMC Community Guidelines PDF">
+              <span class="doc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg></span>
+              <span class="doc-body"><span class="doc-title">Community Guidelines</span><span class="doc-sub">Authored for ArchMC · PDF preview</span></span>
+              <span class="doc-cta">Preview ↗</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="role reveal">
+          <div class="role-head">
+            <h3>Builder &amp; Administrator <span class="org">· VoidSentMC Network</span></h3>
+            <span class="badge">~250 avg players</span>
+          </div>
+          <p class="meta">2025 — 2026</p>
+          <ul>
+            <li>Moderated a <b>3,500+ member</b> Discord community.</li>
+            <li>Led a staff team of <b>19</b>, including 3 voluntary builders.</li>
+            <li>Documented <b>15+ bugs</b>, including critical ones.</li>
+            <li>Handled <b>50+ support tickets</b>; issued ~200 punishments.</li>
+            <li>Finalized <b>5 build projects</b>.</li>
+          </ul>
+          <div class="proof">
+            <span class="proof-label">⛏ Verified proof</span>
+            <div class="proof-thumbs reveal-grid">
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="voidsent" data-lb-src="Assets/VoidSentMC/Position%20Proof.png" data-lb-caption="VoidSentMC — Position proof (admin rank)" aria-label="VoidSentMC position proof — open larger">
+                <img src="Assets/VoidSentMC/Position%20Proof.png" alt="VoidSentMC administrator position proof" loading="lazy" />
+                <span class="proof-cap">Position</span>
+              </button>
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="voidsent" data-lb-src="Assets/VoidSentMC/Server%20Proof.png" data-lb-caption="VoidSentMC — Server proof (community / scale)" aria-label="VoidSentMC server proof — open larger">
+                <img src="Assets/VoidSentMC/Server%20Proof.png" alt="VoidSentMC server proof" loading="lazy" />
+                <span class="proof-cap">Server</span>
+              </button>
+              <button class="proof-thumb reveal" type="button" data-lb-trigger data-lb-group="voidsent" data-lb-src="Assets/VoidSentMC/Minecraft%20Proof.png" data-lb-caption="VoidSentMC — In-game proof" aria-label="VoidSentMC in-game proof — open larger">
+                <img src="Assets/VoidSentMC/Minecraft%20Proof.png" alt="VoidSentMC in-game proof" loading="lazy" />
+                <span class="proof-cap">In-game</span>
+              </button>
+            </div>
+            <div class="proof-links">
+              <a class="chip" href="https://discord.gg/voidsentmc" target="_blank" rel="noopener">Discord ↗</a>
+              <span class="chip chip-static">IP · play.voidsent.net</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KLEOS -->
+  <section id="kleos">
+    <div class="wrap">
+      <div class="kleos reveal">
+        <div>
+          <p class="kleos-label">⛏ FEATURED BUILD</p>
+          <h3>Kleos</h3>
+          <p>A media-management tool that tracks multiple content creators across multiple servers from one dashboard — activity, budget allocation, and payouts in a single view. Built to replace the spreadsheet chaos of running 30+ creators at once.</p>
+          <div class="tags">
+            <span class="tag">Multi-server</span>
+            <span class="tag">Creator tracking</span>
+            <span class="tag">Budget allocation</span>
+            <span class="tag">Dashboard</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a class="btn btn-primary" href="https://github.com/thoriadevelopment/Kleos" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+        </div>
+        <div class="kleos-side">
+          <img class="kleos-thumb" src="Assets/Kleos/Kleos.png" alt="Kleos logo" width="220" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="gallery" data-gallery="kleos">
+        <button class="gallery-main reveal" type="button" data-lb-trigger data-lb-group="kleos" aria-label="Open Kleos screenshot larger">
+          <img src="Assets/Kleos/Main%20Dash.png" alt="Kleos main dashboard screenshot" loading="lazy" />
+          <span class="gallery-zoom" aria-hidden="true">⤢</span>
+        </button>
+        <p class="gallery-cap reveal">Kleos — Main Dashboard</p>
+        <div class="gallery-strip reveal-grid">
+          <button class="gallery-thumb reveal is-active" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Main%20Dash.png" data-lb-caption="Kleos — Main Dashboard" aria-label="Show Kleos main dashboard">
+            <img src="Assets/Kleos/Main%20Dash.png" alt="Kleos main dashboard thumbnail" loading="lazy" />
+          </button>
+          <button class="gallery-thumb reveal" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Global%20Graphs.png" data-lb-caption="Kleos — Global Graphs" aria-label="Show Kleos global graphs">
+            <img src="Assets/Kleos/Global%20Graphs.png" alt="Kleos global graphs thumbnail" loading="lazy" />
+          </button>
+          <button class="gallery-thumb reveal" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Media%20History.png" data-lb-caption="Kleos — Media History" aria-label="Show Kleos media history">
+            <img src="Assets/Kleos/Media%20History.png" alt="Kleos media history thumbnail" loading="lazy" />
+          </button>
+          <button class="gallery-thumb reveal" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Individual%20Timeline%20Graph.png" data-lb-caption="Kleos — Individual Timeline Graph" aria-label="Show Kleos individual timeline graph">
+            <img src="Assets/Kleos/Individual%20Timeline%20Graph.png" alt="Kleos individual timeline graph thumbnail" loading="lazy" />
+          </button>
+          <button class="gallery-thumb reveal" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Upload%20Graph.png" data-lb-caption="Kleos — Upload Graph" aria-label="Show Kleos upload graph">
+            <img src="Assets/Kleos/Upload%20Graph.png" alt="Kleos upload graph thumbnail" loading="lazy" />
+          </button>
+          <button class="gallery-thumb reveal" type="button" data-lb-group="kleos" data-lb-src="Assets/Kleos/Kleos.png" data-lb-caption="Kleos — Brand" aria-label="Show Kleos brand image">
+            <img src="Assets/Kleos/Kleos.png" alt="Kleos brand thumbnail" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.015),transparent)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Skills</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="stack reveal">
+        <span class="stack-label">Stack</span>
+        <div class="stack-chips">
+          <span class="chip chip-static">Polar</span>
+          <span class="chip chip-static">Vulcan</span>
+          <span class="chip chip-static">Grim</span>
+          <span class="chip chip-static">Doomsday</span>
+          <span class="chip chip-static">Raven B+</span>
+          <span class="chip chip-static">Python</span>
+          <span class="chip chip-static">JavaScript</span>
+          <span class="chip chip-static">Kleos</span>
+        </div>
+      </div>
+      <div class="grid-skills reveal-grid">
+
+        <article class="card pixel-frame reveal">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg>
+          </div>
+          <h3>Creator &amp; Media Management</h3>
+          <p class="desc">Running creator programs at scale — tracking activity, allocating budgets, and keeping 30+ creators aligned across multiple servers.</p>
+          <ul>
+            <li>Built Kleos to track multiple creators across multiple servers</li>
+            <li>Accurate budget allocation between media members</li>
+            <li>JavaScript payout algorithm for systematic creator compensation</li>
+            <li>Managed <b>30+ content creators</b> to date</li>
+          </ul>
+        </article>
+
+        <article class="card pixel-frame reveal">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Anticheat &amp; Security</h3>
+          <p class="desc">Keeping networks cheat-free — anticheat internals, manual screenshares, and understanding how bypasses are actually built.</p>
+          <ul>
+            <li>Hands-on with <b>Polar</b>, <b>Vulcan</b> &amp; <b>Grim</b> — read Grim's source code</li>
+            <li>Studied open-source clients (<b>Doomsday</b>, <b>Raven B+</b>) for bypass methods</li>
+            <li>~70 manual screenshares with Echo &amp; Ocean</li>
+            <li>Punishment &amp; appeals workflow at scale</li>
+          </ul>
+        </article>
+
+        <article class="card pixel-frame reveal">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="m6 8 3 3-3 3M13 14h5"/></svg>
+          </div>
+          <h3>Staff Leadership</h3>
+          <p class="desc">Leading server teams — hiring, onboarding, and being the reachable management member that staff and creators actually talk to.</p>
+          <ul>
+            <li>Led staff teams of up to <b>22 people</b></li>
+            <li>Interview and personally guide new staff members</li>
+            <li>Months of experience managing staff operations</li>
+            <li>Wrote official Community Guidelines and onboarding process</li>
+          </ul>
+        </article>
+
+        <article class="card pixel-frame reveal">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M12 18 8.5 11"/><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h3>Development &amp; Languages</h3>
+          <p class="desc">Building internal tools and communicating across two languages to keep global teams and media pipelines running smoothly.</p>
+          <ul>
+            <li>Developer of <a href="https://github.com/thoriadevelopment/Kleos" target="_blank" rel="noopener">Kleos</a></li>
+            <li>General experience in <b>Python</b></li>
+            <li>Fluent English (7 years) and native Turkish speaker</li>
+            <li>Internal tooling for server operations and creator tracking</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 class="sec-title">FAQ</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>What's your availability and timezone?</summary>
+          <p>EU · Turkey (UTC+3). I keep flexible hours and stay reachable across timezones — I'm the management member people actually hear back from, not a black box.</p>
+        </details>
+        <details>
+          <summary>Paid or volunteer roles?</summary>
+          <p>Open to both. I've led paid creator programs and voluntary staff teams; happy to discuss scope, commitment, and compensation up front so nothing is ambiguous.</p>
+        </details>
+        <details>
+          <summary>What does "reachable management" actually mean?</summary>
+          <p>Creators and staff get real responses. I personally interview and guide new staff, handle escalations directly, and keep moderation and appeals workflows transparent.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Contact</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="bio-grid reveal">
+        <div class="bio-copy">
+          <p>Open to <strong>staff &amp; media management roles</strong>. If you run a Minecraft network and need someone who can handle moderation, creator programs, and internal tooling, send a ticket.</p>
+          <p>You can also reach me directly at <a href="mailto:officialthoria@gmail.com">officialthoria@gmail.com</a> or copy <strong>@inrising</strong> on Discord.</p>
+        </div>
+        <form id="ticketForm" class="ticket-form">
+          <h3>⛏ Support Ticket</h3>
+          <div class="ticket-field">
+            <label for="tEmail">Email</label>
+            <input id="tEmail" name="email" type="email" placeholder="you@server.com" required />
+          </div>
+          <div class="ticket-field">
+            <label for="tSubject">Subject</label>
+            <select id="tSubject" name="subject" required>
+              <option value="">Select a topic</option>
+              <option>Staff / admin role</option>
+              <option>Media management</option>
+              <option>General inquiry</option>
+            </select>
+          </div>
+          <div class="ticket-field">
+            <label for="tMessage">Message</label>
+            <textarea id="tMessage" name="message" rows="4" placeholder="Tell me about your server and what you need help with." required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit Ticket</button>
+          <div class="ticket-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot reveal">
+        <div>
+          <h2>Open to staff &amp; media management roles.</h2>
+          <p>Reach out — I keep it reachable.</p>
+          <div class="socials" style="margin-top:16px">
+            <a class="chip" href="mailto:officialthoria@gmail.com">officialthoria@gmail.com</a>
+            <a class="chip" href="https://github.com/thoriadevelopment" target="_blank" rel="noopener">github.com/thoriadevelopment</a>
+            <button class="chip" data-copy="@inrising" type="button">Discord @inrising</button>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="#top">Back to top ↑</a>
+      </div>
+      <div class="copyline">
+        <span>© <span id="year">2026</span> Thoria</span>
+        <span>Multi-file portfolio · deployed via GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- lightbox / PDF modal -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="lb-close" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-prev" type="button" aria-label="Previous" style="display:none">‹</button>
+  <button class="lb-next" type="button" aria-label="Next" style="display:none">›</button>
+  <figure class="lb-figure">
+    <img class="lb-img" alt="" />
+    <iframe class="lb-pdf" title="PDF preview" src=""></iframe>
+    <figcaption class="lb-caption"></figcaption>
+    <a class="lb-open" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+  </figure>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

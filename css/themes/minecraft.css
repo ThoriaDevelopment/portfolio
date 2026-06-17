@@ -1,0 +1,94 @@
+/* Minecraft theme — dirt, stone, grass palette + block textures */
+[data-theme="minecraft"] body {
+  background-color: var(--bg);
+  background-image:
+    url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png"),
+    linear-gradient(180deg, rgba(26,22,18,0.92), rgba(26,22,18,0.92));
+  background-size: 64px auto, cover;
+  background-blend-mode: overlay, normal;
+  font-family: var(--sans);
+}
+
+[data-theme="minecraft"] .eyebrow,
+[data-theme="minecraft"] .kleos-label,
+[data-theme="minecraft"] .sec-num {
+  font-family: var(--pixel);
+  text-transform: uppercase;
+}
+
+[data-theme="minecraft"] .brand,
+[data-theme="minecraft"] .nav-links,
+[data-theme="minecraft"] .btn,
+[data-theme="minecraft"] .chip,
+[data-theme="minecraft"] .stat span,
+[data-theme="minecraft"] .stack-label,
+[data-theme="minecraft"] .bio-side h3,
+[data-theme="minecraft"] .loc,
+[data-theme="minecraft"] .gallery-cap,
+[data-theme="minecraft"] .role .meta,
+[data-theme="minecraft"] .badge,
+[data-theme="minecraft"] .proof-label,
+[data-theme="minecraft"] .proof-cap,
+[data-theme="minecraft"] .doc-title,
+[data-theme="minecraft"] .doc-cta,
+[data-theme="minecraft"] .faq summary,
+[data-theme="minecraft"] .copyline,
+[data-theme="minecraft"] .kleos h3,
+[data-theme="minecraft"] .kleos .tag,
+[data-theme="minecraft"] .outstrip span {
+  font-family: var(--pixel);
+  letter-spacing: 0;
+  font-size: max(0.55rem, inherit);
+}
+
+[data-theme="minecraft"] .hero-avatar,
+[data-theme="minecraft"] .card,
+[data-theme="minecraft"] .stat,
+[data-theme="minecraft"] .bio-side,
+[data-theme="minecraft"] .kleos,
+[data-theme="minecraft"] .gallery-main,
+[data-theme="minecraft"] .gallery-thumb,
+[data-theme="minecraft"] .proof-thumb,
+[data-theme="minecraft"] .doc-card,
+[data-theme="minecraft"] .faq details,
+[data-theme="minecraft"] .outstrip {
+  border-radius: 0;
+  border: 2px solid var(--border);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/stone.png");
+  background-size: 64px auto;
+}
+
+[data-theme="minecraft"] .card::before,
+[data-theme="minecraft"] .kleos::before {
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+}
+
+[data-theme="minecraft"] .pixel-frame::after {
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent));
+  background-size: 3px 12px, 12px 3px, 3px 12px, 12px 3px;
+  opacity: .8;
+}
+
+[data-theme="minecraft"] .btn,
+[data-theme="minecraft"] .chip {
+  border-radius: 0;
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/cobblestone.png");
+  background-size: 48px auto;
+}
+
+[data-theme="minecraft"] .btn-primary {
+  color: #fff;
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/grass_block_top.png");
+  background-size: 64px auto;
+  border-color: var(--accent-dim);
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+[data-theme="minecraft"] .nav.scrolled {
+  background: rgba(26,22,18,.85);
+}
