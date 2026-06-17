@@ -1,4 +1,4 @@
-/* Light professional theme — tokens already flip in tokens.css;
+/* Light professional theme - tokens already flip in tokens.css;
    this file adds component-specific tweaks that variables alone can't handle. */
 [data-theme="light"] body {
   background: var(--bg);

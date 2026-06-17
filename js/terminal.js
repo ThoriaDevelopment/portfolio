@@ -51,19 +51,19 @@ export function initTerminal() {
     const cmds = {
       help: () => {
         print('Available commands:');
-        print('  hire        — scroll to contact / open ticket form');
-        print('  discord     — copy Discord username');
-        print('  experience  — jump to experience section');
-        print('  kleos       — open the Kleos demo');
-        print('  achievements— list unlocked badges');
-        print('  theme       — cycle theme');
-        print('  sound       — toggle sound');
-        print('  status      — check server statuses');
-        print('  whoami      — about Thoria');
-        print('  whack       — play Whack-a-Block mini-game');
-        print('  memory      — play MineMatch mini-game');
-        print('  snake       — play Emerald Run mini-game');
-        print('  technoblade — memorial tribute');
+        print('  hire          - scroll to contact / open ticket form');
+        print('  discord       - copy Discord username');
+        print('  experience    - jump to experience section');
+        print('  kleos         - open the Kleos demo');
+        print('  achievements  - list unlocked badges');
+        print('  theme         - cycle theme');
+        print('  sound         - toggle sound');
+        print('  status        - check server statuses');
+        print('  whoami        - about Thoria');
+        print('  whack         - play Whack-a-Block mini-game');
+        print('  memory        - play MineMatch mini-game');
+        print('  snake         - play Emerald Run mini-game');
+        print('  technoblade   - memorial tribute');
       },
       hire: () => { close(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
       discord: () => { copyToClipboard('@inrising'); print('Copied @inrising to clipboard.'); },
@@ -79,12 +79,12 @@ export function initTerminal() {
       },
       achievements: () => {
         const saved = JSON.parse(localStorage.getItem('thoria-achievements') || '[]');
-        print('Unlocked badges: ' + (saved.length ? saved.join(', ') : 'none yet — keep exploring!'));
+        print('Unlocked badges: ' + (saved.length ? saved.join(', ') : 'none yet - keep exploring!'));
       },
       theme: () => { const t = document.getElementById('themeToggle'); if (t) t.click(); print('Theme cycled via theme switcher.'); },
       sound: () => { document.getElementById('soundToggle')?.click(); print('Sound toggled.'); },
       status: () => { close(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); print('Scroll to Experience for live status pills.'); },
-      whoami: () => { print('Thoria — Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); },
+      whoami: () => { print('Thoria | Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); },
       whack: () => { close(); window.__ThoriaMiniGames?.whack(); },
       memory: () => { close(); window.__ThoriaMiniGames?.memory(); },
       snake: () => { close(); window.__ThoriaMiniGames?.snake(); },
