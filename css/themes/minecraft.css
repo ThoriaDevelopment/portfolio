@@ -1,6 +1,6 @@
 /* Minecraft theme — dirt, stone, grass palette + block textures */
 [data-theme="minecraft"] body {
-  background-color: #0F0C08;
+  background-color: #171410;
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png");
   background-blend-mode: multiply;
   background-size: 64px auto;
