@@ -489,9 +489,9 @@ section {
 /* ---------- references ---------- */
 .grid-references {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
