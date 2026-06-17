@@ -198,6 +198,16 @@ html.js .reveal.visible {
 
 .theme-toggle .theme-icon {
   display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.theme-toggle .theme-icon img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.5));
 }
 
 .nav .btn {
