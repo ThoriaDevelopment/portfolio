@@ -469,6 +469,20 @@
   </figure>
 </div>
 
+<script>
+  // Safety net: if ES modules fail to load or crash early, reveal content anyway.
+  window.addEventListener('error', function(e) {
+    console.error('Portfolio error fallback:', e.message);
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  });
+  window.addEventListener('unhandledrejection', function(e) {
+    console.error('Portfolio promise rejection:', e.reason);
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  });
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  }, 2200);
+</script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>
