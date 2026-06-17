@@ -37,28 +37,42 @@ function initReveal() {
 
 function initCountUp() {
   const reduced = prefersReducedMotion();
-  const counters = Array.from(document.querySelectorAll('.stat[data-count]'));
-  counters.forEach(el => {
-    if (!reduced) {
-      const b = el.querySelector('b');
-      if (b) b.textContent = '0';
-    }
+  const statsGrids = Array.from(document.querySelectorAll('.stats'));
+
+  statsGrids.forEach(grid => {
+    grid.querySelectorAll('.stat[data-count]').forEach(el => {
+      if (!reduced) {
+        const b = el.querySelector('b');
+        if (b) b.textContent = '0';
+      }
+    });
   });
 
-  const statsGrid = document.querySelector('.stats');
-  if (statsGrid && counters.length) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          counters.forEach(animateCount);
-          cio.unobserve(e.target);
-        }
+  if (!statsGrids.length) return;
+
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat[data-count]').forEach(animateCount);
+        cio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  statsGrids.forEach(grid => cio.observe(grid));
+
+  // Re-animate the stats grid for the newly visible theme if it was hidden during initial scroll.
+  window.addEventListener('themechange', () => {
+    statsGrids.forEach(grid => {
+      if (grid.style.display === 'none') return;
+      grid.querySelectorAll('.stat[data-count]').forEach(el => {
+        const b = el.querySelector('b');
+        const target = parseFloat(el.getAttribute('data-count'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        if (b && b.textContent !== fmtNum(target) + suffix) animateCount(el);
       });
-    }, { threshold: 0.3 });
-    cio.observe(statsGrid);
-  } else {
-    counters.forEach(animateCount);
-  }
+    });
+  });
 }
 
 function fmtNum(n) {
