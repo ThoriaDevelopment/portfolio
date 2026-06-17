@@ -291,6 +291,8 @@ function runSnake() {
       el.dataset.y = y;
       el.style.width = `${cellSize}px`;
       el.style.height = `${cellSize}px`;
+      el.style.gridColumn = x + 1;
+      el.style.gridRow = y + 1;
       board.appendChild(el);
     }
     return el;
