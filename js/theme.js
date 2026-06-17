@@ -2,8 +2,8 @@ const STORAGE_KEY = 'thoria-theme';
 const THEMES = ['default', 'minecraft', 'light'];
 
 const THEME_ICONS = {
-  default:  { src: 'Assets/Minecraft/assets/minecraft/textures/item/clock_00.png', alt: 'Default theme (night clock)' },
-  light:    { src: 'Assets/Minecraft/assets/minecraft/textures/item/clock_31.png', alt: 'Light theme (day clock)' },
+  default:  { src: 'Assets/Minecraft/assets/minecraft/textures/item/clock_31.png', alt: 'Default theme (day clock)' },
+  light:    { src: 'Assets/Minecraft/assets/minecraft/textures/item/clock_00.png', alt: 'Light theme (night clock)' },
   minecraft:{ src: 'Assets/Minecraft/assets/minecraft/textures/item/stone_sword.png', alt: 'Minecraft theme (stone sword)' }
 };
 
