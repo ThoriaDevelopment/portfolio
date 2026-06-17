@@ -42,10 +42,11 @@ export function initHireBar() {
     });
   });
 
-  // auto-show after scrolling a bit
+  // auto-show after scrolling a bit (desktop only)
   let shown = false;
+  const isMobile = window.matchMedia('(pointer: coarse)').matches;
   window.addEventListener('scroll', () => {
-    if (shown) return;
+    if (shown || isMobile) return;
     if ((window.scrollY || 0) > window.innerHeight * 0.5) {
       shown = true;
       setTimeout(() => setOpen(true), 400);

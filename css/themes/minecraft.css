@@ -92,3 +92,9 @@
 [data-theme="minecraft"] .nav.scrolled {
   background: rgba(26,22,18,.85);
 }
+
+[data-theme="minecraft"] .hero-bg {
+  background:
+    radial-gradient(60% 50% at 70% 18%, rgba(93,140,57,.14), transparent 70%),
+    radial-gradient(45% 40% at 12% 80%, rgba(93,140,57,.08), transparent 70%);
+}

@@ -126,7 +126,7 @@ function initParallax() {
 }
 
 function initVelocitySkew() {
-  if (prefersReducedMotion()) return;
+  if (prefersReducedMotion() || window.matchMedia('(pointer: coarse)').matches) return;
   let lastY = 0;
   let targetSkew = 0;
   let currentSkew = 0;
@@ -134,8 +134,9 @@ function initVelocitySkew() {
 
   function loop() {
     currentSkew += (targetSkew - currentSkew) * 0.08;
-    document.querySelectorAll('section').forEach(s => {
-      s.style.transform = Math.abs(currentSkew) > 0.02 ? `skewY(${currentSkew}deg)` : '';
+    const skewValue = Math.abs(currentSkew) > 0.02 ? currentSkew : 0;
+    document.querySelectorAll('.skew-layer').forEach(el => {
+      el.style.transform = skewValue ? `skewY(${skewValue}deg)` : '';
     });
     if (Math.abs(targetSkew - currentSkew) > 0.001) raf = requestAnimationFrame(loop);
     else raf = null;
@@ -145,7 +146,7 @@ function initVelocitySkew() {
     const y = window.scrollY || 0;
     const v = y - lastY;
     lastY = y;
-    targetSkew = Math.max(-1.2, Math.min(1.2, v * 0.03));
+    targetSkew = Math.max(-0.6, Math.min(0.6, v * 0.02));
     if (!raf) raf = requestAnimationFrame(loop);
     setTimeout(() => { targetSkew = 0; if (!raf) raf = requestAnimationFrame(loop); }, 120);
   }, { passive: true });

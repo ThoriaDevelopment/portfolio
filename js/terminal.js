@@ -118,7 +118,7 @@ export function initTerminal() {
   document.addEventListener('keydown', (e) => {
     if (terminal.classList.contains('open')) return;
     if (e.ctrlKey || e.metaKey || e.altKey) return;
-    if (e.key.length > 1) return;
+    if (!e.key || e.key.length > 1) return;
     typedBuffer += e.key.toLowerCase();
     clearTimeout(typingTimer);
     typingTimer = setTimeout(() => typedBuffer = '', 900);
