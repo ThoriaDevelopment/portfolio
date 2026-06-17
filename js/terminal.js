@@ -1,6 +1,6 @@
 import { copyToClipboard } from './utils.js';
 import { unlock } from './achievements.js';
-import { applyTheme, unlockTheme, isThemeUnlocked } from './theme.js';
+import { applyTheme, unlockTheme, lockTheme, isThemeUnlocked } from './theme.js';
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let keys = [];
@@ -63,7 +63,7 @@ export function initTerminal() {
         print('  whack         - play Whack-a-Block mini-game');
         print('  memory        - play MineMatch mini-game');
         print('  snake         - play Emerald Run mini-game');
-        print('  technoblade   - memorial tribute');
+        print('  technoblade   - toggle memorial tribute (unlock or hide)');
       },
       hire: () => { close(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
       discord: () => {
@@ -102,6 +102,13 @@ export function initTerminal() {
       snake: () => { close(); window.__ThoriaMiniGames?.snake(); },
       technoblade: () => {
         print('June 30, 2022');
+        const current = document.documentElement.getAttribute('data-theme');
+        if (current === 'technoblade') {
+          lockTheme('technoblade');
+          applyTheme('default');
+          print('Technoblade tribute hidden. Theme reset to default.');
+          return;
+        }
         if (!isThemeUnlocked('technoblade')) {
           unlockTheme('technoblade');
           unlock('blood_god');

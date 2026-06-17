@@ -43,15 +43,26 @@ export function applyTheme(name) {
 export function unlockTheme(name) {
   if (!unlocked.has(name)) {
     unlocked.add(name);
-    try {
-      const arr = Array.from(unlocked);
-      localStorage.setItem(UNLOCK_STORAGE_KEY, JSON.stringify(arr));
-    } catch (e) {}
+    saveUnlocked();
+  }
+}
+
+export function lockTheme(name) {
+  if (unlocked.has(name)) {
+    unlocked.delete(name);
+    saveUnlocked();
   }
 }
 
 export function isThemeUnlocked(name) {
   return unlocked.has(name);
+}
+
+function saveUnlocked() {
+  try {
+    const arr = Array.from(unlocked);
+    localStorage.setItem(UNLOCK_STORAGE_KEY, JSON.stringify(arr));
+  } catch (e) {}
 }
 
 function loadUnlocked() {
