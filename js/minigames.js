@@ -269,6 +269,7 @@ function runSnake() {
   let score = 0;
   let gameLoop = null;
   let tick = 120;
+  let paused = false;
 
   stage.innerHTML = `
     <div class="mg-snake">
@@ -296,11 +297,13 @@ function runSnake() {
   }
 
   function placeFood() {
-    let pos;
-    do {
-      pos = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
-    } while (snake.some(s => s.x === pos.x && s.y === pos.y));
-    food = pos;
+    const free = [];
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        if (!snake.some(s => s.x === x && s.y === y)) free.push({ x, y });
+      }
+    }
+    food = free.length ? free[Math.floor(Math.random() * free.length)] : null;
   }
 
   function draw() {
@@ -344,13 +347,14 @@ function runSnake() {
     setTimeout(() => alert(`Emerald Run over! Score: ${finalScore}`), 100);
   }
 
-  placeFood();
-  draw();
-  gameLoop = setInterval(step, tick);
-
   function onKey(e) {
     if (e.key === 'Escape') { stopGame(); return; }
-    if (e.key === ' ') { e.preventDefault(); return; }
+    if (e.key === ' ') {
+      e.preventDefault();
+      paused = !paused;
+      scoreEl.textContent = paused ? `Score: ${score} (paused)` : `Score: ${score}`;
+      return;
+    }
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
       e.preventDefault();
       const map = {
@@ -360,11 +364,15 @@ function runSnake() {
         ArrowRight: { x: 1, y: 0 }
       };
       const nd = map[e.key];
-      if (nd.x === -dir.x && nd.y === -dir.y) return;
+      if (nd.x === -nextDir.x && nd.y === -nextDir.y) return;
       nextDir = nd;
     }
   }
   document.addEventListener('keydown', onKey);
+
+  placeFood();
+  draw();
+  gameLoop = setInterval(() => { if (!paused) step(); }, tick);
 
   cleanupFn = () => {
     clearInterval(gameLoop);
@@ -413,7 +421,7 @@ export function initMiniGameTriggers() {
         thumb.classList.add('mg-flicker-ready');
         const img = thumb.querySelector('img');
         const original = img?.src;
-        if (img) img.src = BLOCKS.emerald_block;
+        if (img) img.src = BLOCKS.emerald;
         setTimeout(() => {
           thumb.classList.remove('mg-flicker-ready');
           if (img && original) img.src = original;
