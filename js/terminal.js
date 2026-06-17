@@ -21,7 +21,7 @@ export function initTerminal() {
         <span class="terminal-title">thoria@terminal ~ $</span>
       </div>
       <div class="terminal-body">
-        <div class="terminal-line out">Welcome to the hidden terminal. Type a command or `help`.</div>
+        <div class="terminal-line out">Welcome to the hidden terminal. Type a command or &#96;help&#96;.</div>
       </div>
       <div class="terminal-input-wrap">
         <span class="terminal-prompt">$</span>
