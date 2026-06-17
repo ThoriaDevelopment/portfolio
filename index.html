@@ -450,6 +450,10 @@
       <div class="copyline">
         <span>© <span id="year">2026</span> Thoria</span>
         <span>Multi-file portfolio · deployed via GitHub Pages</span>
+        <button class="guide-trigger" id="guideTrigger" type="button" aria-label="Open field guide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Field Guide</span>
+        </button>
       </div>
     </div>
   </footer>
@@ -467,6 +471,205 @@
     <figcaption class="lb-caption"></figcaption>
     <a class="lb-open" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
   </figure>
+</div>
+
+<!-- Field guide modal -->
+<div class="guide-modal" id="guideModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Field guide">
+  <div class="guide-backdrop" data-guide-close></div>
+  <div class="guide-sheet" role="document">
+    <header class="guide-header">
+      <div class="guide-title">
+        <h2>Field Guide</h2>
+        <p>Every hidden interaction on this portfolio — for testing.</p>
+      </div>
+      <div class="guide-controls">
+        <div class="guide-search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" class="guide-search" id="guideSearch" placeholder="Find an interaction…" />
+        </div>
+        <button class="guide-close" type="button" data-guide-close aria-label="Close field guide">×</button>
+      </div>
+    </header>
+    <div class="guide-body" id="guideBody">
+
+      <section class="guide-section" data-keywords="theme switcher nav icon palette minecraft light default">
+        <h3><span class="guide-num">01</span> Theme Switcher</h3>
+        <p><strong>Trigger:</strong> Click the theme icon in the sticky nav, next to the sound icon.</p>
+        <p>Cycles through three themes:</p>
+        <ol>
+          <li><strong>Default</strong> — emerald-on-dark portfolio look.</li>
+          <li><strong>Minecraft</strong> — dirt/stone/grass block textures, pixel font accents, earthy palette.</li>
+          <li><strong>Light</strong> — clean light professional theme.</li>
+        </ol>
+        <p><strong>Verify:</strong> Click the icon repeatedly and watch the palette, textures, and hero gradient change. Persistence key: <code>localStorage.thoria-theme</code>.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="sound toggle speaker icon audio note block music">
+        <h3><span class="guide-num">02</span> Sound Toggle</h3>
+        <p><strong>Trigger:</strong> Click the speaker icon in the sticky nav. Default is <strong>off</strong>.</p>
+        <p>When on, clicks play sounds; in Minecraft theme they become 8-bit note-block tones. Ambient music starts after the first interaction.</p>
+        <p><strong>Verify:</strong> Toggle on and click a chip. Persistence key: <code>localStorage.thoria-sound</code>.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="custom cursor ring dot hover desktop pointer">
+        <h3><span class="guide-num">03</span> Custom Cursor</h3>
+        <p><strong>Trigger:</strong> Move the mouse on desktop.</p>
+        <p>A ring follows the pointer with a slight delay; a smaller dot follows tightly. The ring expands over buttons, chips, links, and cards. Hidden on touch devices.</p>
+        <p><strong>Verify:</strong> Hover the GitHub button and watch the ring grow; move to plain text and it shrinks.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="magnetic buttons hover lean cursor">
+        <h3><span class="guide-num">04</span> Magnetic Buttons</h3>
+        <p><strong>Trigger:</strong> Hover over a button, chip, or hire-bar icon and move the cursor around inside it.</p>
+        <p>The element gently leans toward the cursor (max ~15% of its size).</p>
+        <p><strong>Verify:</strong> Wiggle the mouse inside the View Experience button.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="click ripples ripple burst tap">
+        <h3><span class="guide-num">05</span> Click Ripples</h3>
+        <p><strong>Trigger:</strong> Click any button, chip, card, proof thumb, gallery item, doc card, FAQ summary, or hire-bar button.</p>
+        <p>A colored ripple burst radiates from the click point.</p>
+        <p><strong>Verify:</strong> Click the Discord @inrising chip — a green ripple expands.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="3d tilt cards skills hover rotate">
+        <h3><span class="guide-num">06</span> 3D Tilt Cards</h3>
+        <p><strong>Trigger:</strong> Hover over any card in the Skills section and move the mouse.</p>
+        <p>The card tilts toward the cursor (max ~8° on X/Y) and lifts slightly. Disabled on touch and reduced motion.</p>
+        <p><strong>Verify:</strong> Hover Creator &amp; Media Management and move to the corners.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="falling blocks canvas hero particles repel burst">
+        <h3><span class="guide-num">07</span> Falling Blocks Canvas</h3>
+        <p><strong>Trigger:</strong> Look at the hero section on desktop.</p>
+        <p>Semi-transparent squares drift downward like falling blocks, repel from the cursor, and burst on click. Pauses when the hero leaves the viewport or the tab is hidden.</p>
+        <p><strong>Verify:</strong> Move the mouse across the hero, then click — a burst should explode from the cursor.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="hidden terminal konami thoria tilde commands easter egg">
+        <h3><span class="guide-num">08</span> Hidden Terminal</h3>
+        <p>Three ways to open it:</p>
+        <ul>
+          <li><strong>Konami code:</strong> ↑ ↑ ↓ ↓ ← → ← → B A</li>
+          <li><strong>Type <code>thoria</code>:</strong> anywhere outside an input field.</li>
+          <li><strong>Press <code>~</code> / <code>`</code>:</strong> toggles the terminal.</li>
+        </ul>
+        <p>Available commands:</p>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead><tr><th>Command</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><code>help</code></td><td>List all commands.</td></tr>
+              <tr><td><code>hire</code></td><td>Scroll to Contact.</td></tr>
+              <tr><td><code>discord</code></td><td>Copy @inrising to clipboard.</td></tr>
+              <tr><td><code>experience</code></td><td>Scroll to Experience.</td></tr>
+              <tr><td><code>kleos</code></td><td>Open the inline Kleos demo.</td></tr>
+              <tr><td><code>achievements</code></td><td>List unlocked badges.</td></tr>
+              <tr><td><code>theme</code></td><td>Cycle theme.</td></tr>
+              <tr><td><code>sound</code></td><td>Toggle sound.</td></tr>
+              <tr><td><code>status</code></td><td>Scroll to server status pills.</td></tr>
+              <tr><td><code>whoami</code></td><td>Print a short bio.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Achievement:</strong> Opening the terminal unlocks <strong>Commander</strong>.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="achievement badges toast localstorage unlock">
+        <h3><span class="guide-num">09</span> Achievement Badges</h3>
+        <p>Badges unlock as you explore. A toast appears top-right and the state is saved in <code>localStorage.thoria-achievements</code>.</p>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead><tr><th>Badge</th><th>How to unlock</th></tr></thead>
+            <tbody>
+              <tr><td>Profiler</td><td>Scroll through #top, #bio, #experience, #kleos, #skills, #faq.</td></tr>
+              <tr><td>Investigator</td><td>Open all proof images for ArchMC and VoidSentMC.</td></tr>
+              <tr><td>Kleos Scout</td><td>Click every Kleos gallery thumbnail (6 total).</td></tr>
+              <tr><td>Signal Boosted</td><td>Click the Discord copy chip (@inrising).</td></tr>
+              <tr><td>Sonic Explorer</td><td>Turn sound on.</td></tr>
+              <tr><td>Block Breaker</td><td>Click the hero/section area to interact with falling blocks.</td></tr>
+              <tr><td>Speedrunner</td><td>Reach the footer/contact section within ~25 seconds of load.</td></tr>
+              <tr><td>Commander</td><td>Open the hidden terminal.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="guide-section" data-keywords="hire command bar dock float bottom actions">
+        <h3><span class="guide-num">10</span> Hire Command Bar</h3>
+        <p><strong>Trigger:</strong> Scroll ~50% down on desktop, or click the floating Hire Me button.</p>
+        <p>One-tap dock with Contact, Discord copy, Resume download, Schedule, and Sound toggle. Resume requires uploading <code>Assets/Thoria/Resume.pdf</code>; schedule URL is configured in <code>js/hireBar.js</code>.</p>
+        <p><strong>Verify:</strong> Scroll down and watch the dock expand; click each action. Auto-open is disabled on touch.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="live server status pills archmc voidsentmc mcstatus copy ip">
+        <h3><span class="guide-num">11</span> Live Server Status Pills</h3>
+        <p><strong>Trigger:</strong> View the Experience section.</p>
+        <p>Shows online/offline status for <code>arch.mc</code> and <code>play.voidsent.net</code> via api.mcstatus.io, with a fallback simulation.</p>
+        <p><strong>Verify:</strong> Look for green/orange/gray dots; click a pill to copy the IP.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="ticket contact form validation email support">
+        <h3><span class="guide-num">12</span> Ticket-Style Contact Form</h3>
+        <p><strong>Trigger:</strong> Scroll to the Contact section.</p>
+        <p>Validates email, subject, and message. Red borders mark errors; a green banner marks success. To make it actually send, configure <code>FORM_ENDPOINT</code> in <code>js/contactTicket.js</code>.</p>
+        <p><strong>Verify:</strong> Submit empty fields (errors), then valid fields.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="kleos demo dashboard search filter verify payout calculator chart">
+        <h3><span class="guide-num">13</span> Inline Kleos Demo</h3>
+        <p><strong>Trigger:</strong> In the Kleos section, click <strong>Try the dashboard ↗</strong>.</p>
+        <p>Expands a mock dashboard with search, role/platform filters, Verify all simulation, Chart.js graphs, and a payout calculator.</p>
+        <p><strong>Verify:</strong> Search <code>Alice</code>, filter by Twitch Partner, click Verify all, then enter 1500 in the payout calculator.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="lightbox gallery proof image pdf navigation arrows">
+        <h3><span class="guide-num">14</span> Lightbox / Gallery</h3>
+        <p><strong>Trigger:</strong> Click any proof image, Kleos screenshot/gallery thumb, or the Community Guidelines doc card.</p>
+        <p>Opens a full-screen viewer with prev/next for grouped images and PDF preview for the guidelines.</p>
+        <p><strong>Verify:</strong> Click an ArchMC proof and cycle with arrows; click the doc card to preview the PDF.</p>
+      </section>
+
+      <section class="guide-section" data-keywords="reduced motion accessibility prefers reduced animation">
+        <h3><span class="guide-num">15</span> Reduced Motion / Accessibility</h3>
+        <p><strong>Trigger:</strong> Enable <code>prefers-reduced-motion</code> in your OS/browser.</p>
+        <p>Reveals appear instantly; parallax, velocity skew, custom cursor, and falling blocks are disabled. Sound remains opt-in.</p>
+        <p><strong>Verify:</strong> Reload with reduced motion on — sections should be visible immediately.</p>
+      </section>
+
+      <section class="guide-section guide-checklist" data-keywords="quick test checklist regression">
+        <h3>Quick Test Checklist</h3>
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead><tr><th>#</th><th>Feature</th><th>Test</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Theme switch</td><td>Click theme icon 3 times, confirm each look</td></tr>
+              <tr><td>2</td><td>Sound toggle</td><td>Toggle on, click a chip</td></tr>
+              <tr><td>3</td><td>Custom cursor</td><td>Hover button on desktop</td></tr>
+              <tr><td>4</td><td>Magnetic buttons</td><td>Wiggle mouse inside a button</td></tr>
+              <tr><td>5</td><td>Click ripple</td><td>Click a chip</td></tr>
+              <tr><td>6</td><td>3D tilt</td><td>Hover a Skills card</td></tr>
+              <tr><td>7</td><td>Falling blocks</td><td>Move mouse + click in hero</td></tr>
+              <tr><td>8</td><td>Terminal</td><td>Type thoria or press Konami</td></tr>
+              <tr><td>9</td><td>Achievements</td><td>Unlock Commander + one more, check localStorage</td></tr>
+              <tr><td>10</td><td>Hire bar</td><td>Scroll to 50%, dock opens</td></tr>
+              <tr><td>11</td><td>Server status</td><td>Check pills in Experience</td></tr>
+              <tr><td>12</td><td>Contact form</td><td>Submit empty, then valid</td></tr>
+              <tr><td>13</td><td>Kleos demo</td><td>Open demo, search + payout calc</td></tr>
+              <tr><td>14</td><td>Lightbox</td><td>Click proof image, use arrows</td></tr>
+              <tr><td>15</td><td>Reduced motion</td><td>Enable in OS, reload</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="guide-empty">No interactions match your search.</div>
+    </div>
+    <footer class="guide-footer">
+      <span class="guide-count" id="guideCount">15 interactions</span>
+      <button class="btn btn-ghost" type="button" data-guide-close>Close</button>
+    </footer>
+  </div>
 </div>
 
 <script>
