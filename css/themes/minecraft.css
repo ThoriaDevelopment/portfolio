@@ -1,10 +1,8 @@
 /* Minecraft theme — dirt, stone, grass palette + block textures */
 [data-theme="minecraft"] body {
   background-color: var(--bg);
-  background-image:
-    linear-gradient(rgba(26,22,18,0.82), rgba(26,22,18,0.82)),
-    url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png");
-  background-size: auto, 64px auto;
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png");
+  background-size: 64px auto;
   font-family: var(--sans);
 }
 
@@ -69,16 +67,23 @@
 [data-theme="minecraft"] .outstrip {
   border-radius: 0;
   border: 2px solid var(--border);
-  background-image:
-    linear-gradient(rgba(26,22,18,0.55), rgba(26,22,18,0.55)),
-    url("../../Assets/Minecraft/assets/minecraft/textures/block/stone.png");
-  background-size: auto, 64px auto;
+  background-color: rgba(26,22,18,0.55);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/stone.png");
+  background-blend-mode: multiply;
+  background-size: 64px auto;
 }
 
 [data-theme="minecraft"] .card::before,
 [data-theme="minecraft"] .kleos::before {
   border-radius: 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  z-index: 0;
+}
+
+[data-theme="minecraft"] .card > *,
+[data-theme="minecraft"] .kleos > * {
+  position: relative;
+  z-index: 1;
 }
 
 [data-theme="minecraft"] .card p.desc,
@@ -121,19 +126,19 @@
 [data-theme="minecraft"] .btn,
 [data-theme="minecraft"] .chip {
   border-radius: 0;
-  background-image:
-    linear-gradient(rgba(26,22,18,0.55), rgba(26,22,18,0.55)),
-    url("../../Assets/Minecraft/assets/minecraft/textures/block/cobblestone.png");
-  background-size: auto, 48px auto;
+  background-color: rgba(26,22,18,0.55);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/cobblestone.png");
+  background-blend-mode: multiply;
+  background-size: 48px auto;
   text-shadow: 0 1px 2px rgba(0,0,0,.8);
 }
 
 [data-theme="minecraft"] .btn-primary {
   color: #fff;
-  background-image:
-    linear-gradient(rgba(26,22,18,0.35), rgba(26,22,18,0.35)),
-    url("../../Assets/Minecraft/assets/minecraft/textures/block/grass_block_top.png");
-  background-size: auto, 64px auto;
+  background-color: rgba(26,22,18,0.35);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/grass_block_top.png");
+  background-blend-mode: multiply;
+  background-size: 64px auto;
   border-color: var(--accent-dim);
   text-shadow: 0 1px 3px rgba(0,0,0,.9);
 }
@@ -151,4 +156,22 @@
   background:
     radial-gradient(60% 50% at 70% 18%, rgba(93,140,57,.14), transparent 70%),
     radial-gradient(45% 40% at 12% 80%, rgba(93,140,57,.08), transparent 70%);
+}
+
+/* performance: stop expensive background-position repaints on animated elements */
+[data-theme="minecraft"] .card,
+[data-theme="minecraft"] .btn,
+[data-theme="minecraft"] .chip,
+[data-theme="minecraft"] .stat,
+[data-theme="minecraft"] .bio-side,
+[data-theme="minecraft"] .kleos,
+[data-theme="minecraft"] .gallery-main,
+[data-theme="minecraft"] .gallery-thumb,
+[data-theme="minecraft"] .proof-thumb,
+[data-theme="minecraft"] .doc-card,
+[data-theme="minecraft"] .faq details,
+[data-theme="minecraft"] .outstrip,
+[data-theme="minecraft"] body {
+  background-attachment: scroll;
+  will-change: auto;
 }
