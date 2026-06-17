@@ -4,6 +4,20 @@
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png");
   background-size: 64px auto;
   font-family: var(--sans);
+  color: #FAF8F2;
+}
+
+[data-theme="minecraft"] h1,
+[data-theme="minecraft"] h2,
+[data-theme="minecraft"] h3,
+[data-theme="minecraft"] .title,
+[data-theme="minecraft"] .lead,
+[data-theme="minecraft"] .sec-title,
+[data-theme="minecraft"] .brand,
+[data-theme="minecraft"] .nav-links a,
+[data-theme="minecraft"] a:not(.btn):not(.chip) {
+  color: #FAF8F2;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
 }
 
 [data-theme="minecraft"] .card,
@@ -67,7 +81,7 @@
 [data-theme="minecraft"] .outstrip {
   border-radius: 0;
   border: 2px solid var(--border);
-  background-color: rgba(26,22,18,0.55);
+  background-color: rgba(26,22,18,0.72);
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/stone.png");
   background-blend-mode: multiply;
   background-size: 64px auto;
@@ -100,9 +114,17 @@
 [data-theme="minecraft"] .guide-section li,
 [data-theme="minecraft"] .guide-table td,
 [data-theme="minecraft"] .copyline span,
-[data-theme="minecraft"] .copyline p {
-  color: #E8E4D9;
-  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+[data-theme="minecraft"] .copyline p,
+[data-theme="minecraft"] .faq summary,
+[data-theme="minecraft"] .ticket-form h3,
+[data-theme="minecraft"] .guide-title h2,
+[data-theme="minecraft"] .guide-title p,
+[data-theme="minecraft"] .guide-table th,
+[data-theme="minecraft"] .guide-empty,
+[data-theme="minecraft"] .guide-count,
+[data-theme="minecraft"] .guide-section h3 {
+  color: #FAF8F2;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
 }
 
 [data-theme="minecraft"] .muted,
@@ -126,21 +148,22 @@
 [data-theme="minecraft"] .btn,
 [data-theme="minecraft"] .chip {
   border-radius: 0;
-  background-color: rgba(26,22,18,0.55);
+  background-color: rgba(26,22,18,0.72);
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/cobblestone.png");
   background-blend-mode: multiply;
   background-size: 48px auto;
-  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  color: #FAF8F2;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
 }
 
 [data-theme="minecraft"] .btn-primary {
   color: #fff;
-  background-color: rgba(26,22,18,0.35);
+  background-color: rgba(26,22,18,0.55);
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/grass_block_top.png");
   background-blend-mode: multiply;
   background-size: 64px auto;
   border-color: var(--accent-dim);
-  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
 }
 
 [data-theme="minecraft"] .btn:hover,
