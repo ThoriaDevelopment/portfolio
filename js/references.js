@@ -14,35 +14,43 @@ export function initReferences() {
     let finished = false;
     let copiedTimer = null;
 
-    btn.addEventListener('click', async (e) => {
-      e.stopPropagation();
+    function copyAndPrank(e) {
+      if (e) e.stopPropagation();
 
       // Always copy the real username, even when the label shows the prank.
-      const ok = await copyToClipboard(realName);
-      if (ok) {
-        btn.classList.add('copied');
-        const original = label.textContent;
-        label.textContent = 'Copied!';
-        clearTimeout(copiedTimer);
-        copiedTimer = setTimeout(() => {
-          btn.classList.remove('copied');
-          label.textContent = original;
-        }, 1200);
-      }
+      copyToClipboard(realName).then((ok) => {
+        if (ok) {
+          btn.classList.add('copied');
+          const original = label.textContent;
+          label.textContent = 'Copied!';
+          clearTimeout(copiedTimer);
+          copiedTimer = setTimeout(() => {
+            btn.classList.remove('copied');
+            label.textContent = original;
+          }, 1200);
+        }
+      });
 
       if (finished) return;
       clicks++;
 
       if (clicks === 3) {
+        clearTimeout(copiedTimer);
+        btn.classList.remove('copied');
         label.textContent = prankText;
         btn.setAttribute('aria-label', `Copy Discord username ${prankName}`);
         btn.classList.add('ref-pranked');
       } else if (clicks === 4) {
+        clearTimeout(copiedTimer);
+        btn.classList.remove('copied');
         label.textContent = realText;
         btn.setAttribute('aria-label', `Copy Discord username ${realName}`);
         btn.classList.remove('ref-pranked');
         finished = true;
       }
-    });
+    }
+
+    btn.addEventListener('click', copyAndPrank);
+    card.addEventListener('click', copyAndPrank);
   });
 }
