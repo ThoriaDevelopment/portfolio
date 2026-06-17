@@ -488,11 +488,15 @@ section {
 
 /* ---------- references ---------- */
 .grid-references {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-  max-width: 860px;
+  max-width: 640px;
   margin: 0 auto;
+}
+
+.reference-card {
+  width: 100%;
 }
 
 .reference-card .ref-discord {
@@ -513,10 +517,6 @@ section {
   25% { opacity: .25; }
   50% { opacity: 1; }
   75% { opacity: .25; }
-}
-
-@media (max-width: 620px) {
-  .grid-references { grid-template-columns: 1fr; }
 }
 
 /* ---------- skills ---------- */
