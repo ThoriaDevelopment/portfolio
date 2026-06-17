@@ -66,7 +66,12 @@ export function initTerminal() {
         print('  technoblade   - memorial tribute');
       },
       hire: () => { close(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
-      discord: () => { copyToClipboard('@inrising'); print('Copied @inrising to clipboard.'); },
+      discord: () => {
+        const techno = document.documentElement.getAttribute('data-theme') === 'technoblade';
+        const value = techno ? 'https://discord.com/invite/technoblade' : '@inrising';
+        copyToClipboard(value);
+        print(`Copied ${value} to clipboard.`);
+      },
       experience: () => { close(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); },
       kleos: () => {
         close();
@@ -84,7 +89,14 @@ export function initTerminal() {
       theme: () => { const t = document.getElementById('themeToggle'); if (t) t.click(); print('Theme cycled via theme switcher.'); },
       sound: () => { document.getElementById('soundToggle')?.click(); print('Sound toggled.'); },
       status: () => { close(); document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); print('Scroll to Experience for live status pills.'); },
-      whoami: () => { print('Thoria | Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); },
+      whoami: () => {
+        const techno = document.documentElement.getAttribute('data-theme') === 'technoblade';
+        if (techno) {
+          print('Technoblade | Minecraft PvP legend, creator, and charity streamer. So long, Nerds.');
+        } else {
+          print('Thoria | Minecraft server admin & media manager. 3 years, 400–1000+ player networks.');
+        }
+      },
       whack: () => { close(); window.__ThoriaMiniGames?.whack(); },
       memory: () => { close(); window.__ThoriaMiniGames?.memory(); },
       snake: () => { close(); window.__ThoriaMiniGames?.snake(); },

@@ -1,6 +1,6 @@
 const THEME_STORAGE_KEY = 'thoria-theme';
 const UNLOCK_STORAGE_KEY = 'thoria-theme-unlocked';
-const BASE_THEMES = ['default', 'minecraft', 'light'];
+const BASE_THEMES = ['default', 'light', 'minecraft'];
 
 const THEME_ICONS = {
   default:  { src: 'Assets/Minecraft/assets/minecraft/textures/item/clock_31.png', alt: 'Default theme (day clock)' },
