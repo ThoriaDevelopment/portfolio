@@ -1,5 +1,6 @@
 import { copyToClipboard } from './utils.js';
 import { unlock } from './achievements.js';
+import { applyTheme, unlockTheme, isThemeUnlocked } from './theme.js';
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let keys = [];
@@ -62,6 +63,7 @@ export function initTerminal() {
         print('  whack       — play Whack-a-Block mini-game');
         print('  memory      — play MineMatch mini-game');
         print('  snake       — play Emerald Run mini-game');
+        print('  technoblade — memorial tribute');
       },
       hire: () => { close(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
       discord: () => { copyToClipboard('@inrising'); print('Copied @inrising to clipboard.'); },
@@ -85,7 +87,17 @@ export function initTerminal() {
       whoami: () => { print('Thoria — Minecraft server admin & media manager. 3 years, 400–1000+ player networks.'); },
       whack: () => { close(); window.__ThoriaMiniGames?.whack(); },
       memory: () => { close(); window.__ThoriaMiniGames?.memory(); },
-      snake: () => { close(); window.__ThoriaMiniGames?.snake(); }
+      snake: () => { close(); window.__ThoriaMiniGames?.snake(); },
+      technoblade: () => {
+        print('June 30, 2022');
+        if (!isThemeUnlocked('technoblade')) {
+          unlockTheme('technoblade');
+          unlock('blood_god');
+          print('Theme unlocked: technoblade.');
+        }
+        applyTheme('technoblade');
+        print('So long, Nerds!');
+      }
     };
 
     if (cmds[cmd]) cmds[cmd]();

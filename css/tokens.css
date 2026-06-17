@@ -59,6 +59,22 @@
   --muted-2: #6B7280;
 }
 
+[data-theme="technoblade"] {
+  --bg: #1A1214;
+  --bg-2: #24161A;
+  --surface: #2E1A20;
+  --surface-2: #3E222A;
+  --border: rgba(216, 92, 138, 0.35);
+  --border-2: rgba(216, 92, 138, 0.55);
+  --accent: #D85C8A;
+  --accent-2: #F08CAF;
+  --accent-dim: #A34169;
+  --text: #FFF0F3;
+  --muted: #F0C6D0;
+  --muted-2: #C294A0;
+  --radius: 4px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

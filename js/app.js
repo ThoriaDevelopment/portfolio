@@ -13,6 +13,7 @@ import { initContactTicket } from './contactTicket.js';
 import { initKleosDemo } from './kleosDemo.js';
 import { initGuideModal } from './guideModal.js';
 import { initMiniGameTriggers } from './minigames.js';
+import { initTechnobladeSwap } from './technoblade.js';
 
 function initNav() {
   const nav = document.getElementById('nav');
@@ -48,4 +49,5 @@ function initYear() {
   initKleosDemo();
   initGuideModal();
   initMiniGameTriggers();
+  initTechnobladeSwap();
 })();

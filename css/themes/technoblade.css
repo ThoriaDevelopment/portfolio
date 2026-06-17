@@ -1,0 +1,189 @@
+/* Technoblade memorial theme — pink wool/concrete palette */
+[data-theme="technoblade"] body {
+  background-color: #1A1214;
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/pink_concrete.png");
+  background-blend-mode: multiply;
+  background-size: 64px auto;
+  font-family: var(--sans);
+  color: #FFF0F3;
+}
+
+[data-theme="technoblade"] h1,
+[data-theme="technoblade"] h2,
+[data-theme="technoblade"] h3,
+[data-theme="technoblade"] .title,
+[data-theme="technoblade"] .lead,
+[data-theme="technoblade"] .sec-title,
+[data-theme="technoblade"] .brand,
+[data-theme="technoblade"] .nav-links a,
+[data-theme="technoblade"] a:not(.btn):not(.chip) {
+  color: #FFF0F3;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
+}
+
+[data-theme="technoblade"] .card,
+[data-theme="technoblade"] .stat,
+[data-theme="technoblade"] .bio-side,
+[data-theme="technoblade"] .kleos,
+[data-theme="technoblade"] .btn,
+[data-theme="technoblade"] .chip,
+[data-theme="technoblade"] .hero-avatar,
+[data-theme="technoblade"] .gallery-main,
+[data-theme="technoblade"] .gallery-thumb,
+[data-theme="technoblade"] .proof-thumb,
+[data-theme="technoblade"] .doc-card,
+[data-theme="technoblade"] .faq details,
+[data-theme="technoblade"] .outstrip {
+  color: #FFE8ED;
+  border-radius: 0;
+  border: 2px solid var(--border);
+  background-color: rgba(30,16,20,0.72);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/pink_wool.png");
+  background-blend-mode: multiply;
+  background-size: 64px auto;
+}
+
+[data-theme="technoblade"] .eyebrow,
+[data-theme="technoblade"] .kleos-label,
+[data-theme="technoblade"] .sec-num {
+  font-family: var(--pixel);
+  text-transform: uppercase;
+}
+
+[data-theme="technoblade"] .brand,
+[data-theme="technoblade"] .nav-links,
+[data-theme="technoblade"] .btn,
+[data-theme="technoblade"] .chip,
+[data-theme="technoblade"] .stat span,
+[data-theme="technoblade"] .stack-label,
+[data-theme="technoblade"] .bio-side h3,
+[data-theme="technoblade"] .loc,
+[data-theme="technoblade"] .gallery-cap,
+[data-theme="technoblade"] .role .meta,
+[data-theme="technoblade"] .badge,
+[data-theme="technoblade"] .proof-label,
+[data-theme="technoblade"] .proof-cap,
+[data-theme="technoblade"] .doc-title,
+[data-theme="technoblade"] .doc-cta,
+[data-theme="technoblade"] .faq summary,
+[data-theme="technoblade"] .copyline,
+[data-theme="technoblade"] .kleos h3,
+[data-theme="technoblade"] .kleos .tag,
+[data-theme="technoblade"] .outstrip span {
+  font-family: var(--pixel);
+  letter-spacing: 0;
+  font-size: max(0.55rem, inherit);
+}
+
+[data-theme="technoblade"] .card::before,
+[data-theme="technoblade"] .kleos::before {
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  z-index: 0;
+}
+
+[data-theme="technoblade"] .card > *,
+[data-theme="technoblade"] .kleos > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="technoblade"] .card p.desc,
+[data-theme="technoblade"] .card li,
+[data-theme="technoblade"] .stat span,
+[data-theme="technoblade"] .bio-side p,
+[data-theme="technoblade"] .bio-side .lang span,
+[data-theme="technoblade"] .kleos p,
+[data-theme="technoblade"] .role li,
+[data-theme="technoblade"] .role .meta,
+[data-theme="technoblade"] .doc-sub,
+[data-theme="technoblade"] .faq p,
+[data-theme="technoblade"] .guide-section p,
+[data-theme="technoblade"] .guide-section li,
+[data-theme="technoblade"] .guide-table td,
+[data-theme="technoblade"] .copyline span,
+[data-theme="technoblade"] .copyline p,
+[data-theme="technoblade"] .faq summary,
+[data-theme="technoblade"] .ticket-form h3,
+[data-theme="technoblade"] .guide-title h2,
+[data-theme="technoblade"] .guide-title p,
+[data-theme="technoblade"] .guide-table th,
+[data-theme="technoblade"] .guide-empty,
+[data-theme="technoblade"] .guide-count,
+[data-theme="technoblade"] .guide-section h3 {
+  color: #FFF0F3;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
+}
+
+[data-theme="technoblade"] .muted,
+[data-theme="technoblade"] .muted-2,
+[data-theme="technoblade"] .sec-head .sec-num,
+[data-theme="technoblade"] .card .ico,
+[data-theme="technoblade"] .guide-search-wrap svg {
+  color: #F5D6DD;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
+}
+
+[data-theme="technoblade"] .pixel-frame::after {
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent));
+  background-size: 3px 12px, 12px 3px, 3px 12px, 12px 3px;
+  opacity: .8;
+}
+
+[data-theme="technoblade"] .btn,
+[data-theme="technoblade"] .chip {
+  border-radius: 0;
+  background-color: rgba(30,16,20,0.72);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/pink_concrete.png");
+  background-blend-mode: multiply;
+  background-size: 48px auto;
+  color: #FFF0F3;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
+}
+
+[data-theme="technoblade"] .btn-primary {
+  color: #fff;
+  background-color: rgba(30,16,20,0.55);
+  background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/pink_wool.png");
+  background-blend-mode: multiply;
+  background-size: 64px auto;
+  border-color: var(--accent-dim);
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
+}
+
+[data-theme="technoblade"] .btn:hover,
+[data-theme="technoblade"] .chip:hover {
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+}
+
+[data-theme="technoblade"] .nav.scrolled {
+  background: rgba(30,16,20,.85);
+}
+
+[data-theme="technoblade"] .hero-bg {
+  background:
+    radial-gradient(60% 50% at 70% 18%, rgba(216,92,138,.14), transparent 70%),
+    radial-gradient(45% 40% at 12% 80%, rgba(216,92,138,.08), transparent 70%);
+}
+
+/* performance: stop expensive background-position repaints on animated elements */
+[data-theme="technoblade"] .card,
+[data-theme="technoblade"] .btn,
+[data-theme="technoblade"] .chip,
+[data-theme="technoblade"] .stat,
+[data-theme="technoblade"] .bio-side,
+[data-theme="technoblade"] .kleos,
+[data-theme="technoblade"] .gallery-main,
+[data-theme="technoblade"] .gallery-thumb,
+[data-theme="technoblade"] .proof-thumb,
+[data-theme="technoblade"] .doc-card,
+[data-theme="technoblade"] .faq details,
+[data-theme="technoblade"] .outstrip,
+[data-theme="technoblade"] body {
+  background-attachment: scroll;
+  will-change: auto;
+}

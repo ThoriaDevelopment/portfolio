@@ -11,7 +11,8 @@ const ACHIEVEMENTS = {
   commander: { id: 'commander', title: 'Commander', desc: 'Opened the hidden terminal.', icon: '⌨️' },
   prospector: { id: 'prospector', title: 'Prospector', desc: 'Scored 100+ in Whack-a-Block.', icon: '💎' },
   archaeologist: { id: 'archaeologist', title: 'Archaeologist', desc: 'Cleared MineMatch memory game.', icon: '🧩' },
-  serpent_miner: { id: 'serpent_miner', title: 'Serpent Miner', desc: 'Scored 30+ in Emerald Run.', icon: '🐍' }
+  serpent_miner: { id: 'serpent_miner', title: 'Serpent Miner', desc: 'Scored 30+ in Emerald Run.', icon: '🐍' },
+  blood_god: { id: 'blood_god', title: 'Blood God', desc: 'Paid tribute to Technoblade.', icon: '👑' }
 };
 
 let unlocked = new Set();

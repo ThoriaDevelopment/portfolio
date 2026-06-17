@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="css/themes/default.css" />
 <link rel="stylesheet" href="css/themes/minecraft.css" />
 <link rel="stylesheet" href="css/themes/light.css" />
+<link rel="stylesheet" href="css/themes/technoblade.css" />
 </head>
 <body>
 <canvas id="blocks" aria-hidden="true"></canvas>
@@ -35,7 +36,7 @@
   <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top">Thoria<span class="brand-dot">_</span></a>
+      <a class="brand" href="#top"><span data-thoria-default="Thoria" data-thoria-techno="Technoblade">Thoria</span><span class="brand-dot">_</span></a>
       <nav class="nav-links">
         <a href="#bio">Bio</a>
         <a href="#experience">Experience</a>
@@ -60,13 +61,13 @@
   <section class="hero" id="top">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-inner wrap">
-      <p class="eyebrow reveal">⛏ SERVER ADMIN · MEDIA MANAGER</p>
+      <p class="eyebrow reveal" data-thoria-default="⛏ SERVER ADMIN · MEDIA MANAGER" data-thoria-techno="⛏ BLOOD GOD · PVP LEGEND">⛏ SERVER ADMIN · MEDIA MANAGER</p>
       <div class="hero-name-row reveal">
         <img class="hero-avatar" src="Assets/Thoria/inrising.png" alt="Thoria" width="84" height="84" />
-        <h1 class="name"><span id="typeName">Thoria</span></h1>
+        <h1 class="name"><span id="typeName" data-thoria-default="Thoria" data-thoria-techno="Technoblade">Thoria</span></h1>
       </div>
-      <p class="title reveal">Minecraft Server Administrator &amp; Media Manager</p>
-      <p class="lead reveal">3 years running 400–1000+ player Minecraft networks. 42k+ Discord moderated, 600+ tickets handled, and author of ArchMC's Community Guidelines — moderation, security, and creator media at scale.</p>
+      <p class="title reveal" data-thoria-default="Minecraft Server Administrator &amp; Media Manager" data-thoria-techno="So long, Nerds!">Minecraft Server Administrator &amp; Media Manager</p>
+      <p class="lead reveal" data-thoria-default="3 years running 400–1000+ player Minecraft networks. 42k+ Discord moderated, 600+ tickets handled, and author of ArchMC's Community Guidelines — moderation, security, and creator media at scale." data-thoria-techno="Technoblade — the Blood God who turned a Minecraft pig into a symbol of hope. From a 1,451 Bed Wars win streak to raising hundreds of thousands for sarcoma research, he left a crown too big for any server to fill. So long, Nerds.">3 years running 400–1000+ player Minecraft networks. 42k+ Discord moderated, 600+ tickets handled, and author of ArchMC's Community Guidelines — moderation, security, and creator media at scale.</p>
       <p class="loc reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
         EU · Turkey
@@ -519,6 +520,7 @@
               <tr><td><code>whack</code></td><td>Play Whack-a-Block.</td></tr>
               <tr><td><code>memory</code></td><td>Play MineMatch.</td></tr>
               <tr><td><code>snake</code></td><td>Play Emerald Run.</td></tr>
+              <tr><td><code>technoblade</code></td><td>Unlock the memorial tribute.</td></tr>
             </tbody>
           </table>
         </div>
@@ -548,8 +550,20 @@
         </div>
       </section>
 
+      <section class="guide-section" data-keywords="technoblade memorial tribute blood god theme hidden command">
+        <h3><span class="guide-num">04</span> Technoblade Tribute</h3>
+        <p>A hidden memorial for the Blood God. Type the command in the terminal to unlock a pink Technoblade theme and swap the hero copy.</p>
+        <ul>
+          <li><strong>Command:</strong> <code>technoblade</code> in the hidden terminal.</li>
+          <li><strong>Date:</strong> June 30, 2022.</li>
+          <li><strong>Theme icon:</strong> golden helmet.</li>
+          <li><strong>Hero swap:</strong> Thoria → Technoblade, title → “So long, Nerds!”.</li>
+        </ul>
+        <p><strong>Achievement:</strong> Unlocking it grants <strong>Blood God</strong>.</p>
+      </section>
+
       <section class="guide-section" data-keywords="achievement badges unlock toast localstorage explore">
-        <h3><span class="guide-num">04</span> Achievement Badges</h3>
+        <h3><span class="guide-num">05</span> Achievement Badges</h3>
         <p>Badges unlock automatically as you explore. A toast appears top-right and progress is saved in <code>localStorage.thoria-achievements</code>.</p>
         <div class="guide-table-wrap">
           <table class="guide-table">
@@ -566,13 +580,14 @@
               <tr><td>Prospector</td><td>Score 100+ in Whack-a-Block.</td></tr>
               <tr><td>Archaeologist</td><td>Clear MineMatch memory game.</td></tr>
               <tr><td>Serpent Miner</td><td>Score 30+ in Emerald Run.</td></tr>
+              <tr><td>Blood God</td><td>Type <code>technoblade</code> in the hidden terminal.</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section class="guide-section" data-keywords="hire command bar dock float bottom shortcuts">
-        <h3><span class="guide-num">04</span> Hire Command Bar</h3>
+        <h3><span class="guide-num">06</span> Hire Command Bar</h3>
         <p><strong>Trigger:</strong> Scroll about halfway down the page on desktop, or click the floating Hire Me button.</p>
         <p>A compact dock slides open with one-tap shortcuts: Contact, Discord copy, Resume download, Schedule, and Sound toggle. Resume requires uploading <code>Assets/Thoria/Resume.pdf</code>; schedule URL is configured in <code>js/hireBar.js</code>.</p>
         <p>Auto-open is disabled on touch devices so it never blocks content on mobile.</p>
@@ -591,6 +606,7 @@
               <tr><td>5</td><td>Emerald Run</td><td>Click flickering Kleos gallery thumb</td></tr>
               <tr><td>6</td><td>Achievements</td><td>Unlock Commander + one more, check localStorage</td></tr>
               <tr><td>7</td><td>Hire bar</td><td>Scroll to ~50%, dock opens</td></tr>
+              <tr><td>8</td><td>Technoblade tribute</td><td>Type technoblade in terminal</td></tr>
             </tbody>
           </table>
         </div>
