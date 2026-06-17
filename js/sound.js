@@ -1,4 +1,3 @@
-const STORAGE_KEY = 'thoria-sound';
 const SFX_FILES = [
   'Assets/Sounds/Click%20Sounds/Amethyst%20Step%202.mp3',
   'Assets/Sounds/Click%20Sounds/Amethyst%20Step%2014.mp3'
@@ -19,7 +18,8 @@ let bgIdx = 0;
 let audioCtx = null;
 
 export function initSound() {
-  try { sndOn = localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) { sndOn = false; }
+  // Portfolio always starts muted. The user opts in (or back out) with the sound toggle.
+  sndOn = false;
 
   const btn = document.getElementById('soundToggle');
   if (!btn) return;
@@ -27,7 +27,6 @@ export function initSound() {
 
   btn.addEventListener('click', () => {
     sndOn = !sndOn;
-    try { localStorage.setItem(STORAGE_KEY, sndOn ? '1' : '0'); } catch (e) {}
     applyState(btn);
     if (sndOn) { startBg(); playClick(); } else { stopBg(); }
   });
