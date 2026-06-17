@@ -108,7 +108,7 @@ export function initTerminal() {
           print('Theme unlocked: technoblade.');
         }
         applyTheme('technoblade');
-        print('So long, Nerds!');
+        print('Technoblade never dies!');
       }
     };
 

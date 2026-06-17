@@ -1,5 +1,5 @@
 const DEFAULT_TITLE = 'Thoria | Minecraft Server Administrator & Media Manager';
-const TECHNO_TITLE = 'Technoblade | So long, Nerds!';
+const TECHNO_TITLE = 'Technoblade | Technoblade never dies!';
 const DEFAULT_AVATAR = 'Assets/Thoria/inrising.png';
 const TECHNO_AVATAR = 'Assets/Thoria/Technoblade.webp';
 
