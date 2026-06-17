@@ -1,6 +1,6 @@
 import { copyToClipboard } from './utils.js';
 
-const RESUME_PATH = 'assets/Thoria/Resume.pdf';
+const RESUME_PATH = 'Assets/Thoria/Resume.pdf';
 const BOOKING_URL = ''; // TODO: add Calendly / Google Calendar link
 
 export function initHireBar() {
