@@ -1,4 +1,4 @@
-const FORM_ENDPOINT = ''; // TODO: set your Formspree endpoint or EmailJS config
+const FORM_ENDPOINT = 'https://formspree.io/f/mrevvjnw';
 
 export function initContactTicket() {
   const form = document.getElementById('ticketForm');
