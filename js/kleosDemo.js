@@ -41,8 +41,6 @@ export function initKleosDemo() {
   const search = demo.querySelector('.kd-search');
   const filters = demo.querySelectorAll('.kd-filter');
   const verifyBtn = demo.querySelector('.kd-verify-all');
-  const payoutInput = demo.querySelector('.kd-budget');
-  const payoutBtn = demo.querySelector('.kd-calc-payout');
 
   function render() {
     const term = search.value.toLowerCase();
@@ -60,7 +58,6 @@ export function initKleosDemo() {
   search.addEventListener('input', render);
   filters.forEach(f => f.addEventListener('change', render));
   verifyBtn.addEventListener('click', () => runVerifySimulation(demo));
-  payoutBtn.addEventListener('click', () => runPayout(demo, payoutInput.value));
 
   render();
 }
@@ -110,14 +107,6 @@ function buildDemoHTML() {
         <canvas id="kdLeaderboard"></canvas>
       </div>
     </div>
-    <div class="kd-payout">
-      <div class="kd-payout-row">
-        <label>Monthly budget</label>
-        <input type="number" class="kd-budget" value="1200" min="0" />
-        <button class="kd-calc-payout btn btn-primary btn-sm" type="button">Calculate payout split</button>
-      </div>
-      <div class="kd-payout-results"></div>
-    </div>
   `;
 }
 
@@ -161,24 +150,6 @@ function runVerifySimulation(demo) {
       btn.textContent = `Verifying ${progress}%`;
     }
   }, 180);
-}
-
-function runPayout(demo, budget) {
-  const b = parseFloat(budget) || 0;
-  const totalViews = MOCK_CREATORS.reduce((s, c) => s + c.views, 0);
-  const results = demo.querySelector('.kd-payout-results');
-  if (b <= 0 || totalViews <= 0) {
-    results.innerHTML = '<p>Enter a valid budget.</p>';
-    return;
-  }
-  const rows = MOCK_CREATORS.map(c => {
-    const share = (c.views / totalViews) * b;
-    return `<div class="kd-payout-row">
-      <span>${c.nickname}</span>
-      <span>$${share.toFixed(2)}</span>
-    </div>`;
-  }).join('');
-  results.innerHTML = rows;
 }
 
 function loadCharts() {
