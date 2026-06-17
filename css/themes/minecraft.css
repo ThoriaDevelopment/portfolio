@@ -1,7 +1,8 @@
 /* Minecraft theme — dirt, stone, grass palette + block textures */
 [data-theme="minecraft"] body {
-  background-color: var(--bg);
+  background-color: #0F0C08;
   background-image: url("../../Assets/Minecraft/assets/minecraft/textures/block/dirt.png");
+  background-blend-mode: multiply;
   background-size: 64px auto;
   font-family: var(--sans);
   color: #FAF8F2;
@@ -132,7 +133,8 @@
 [data-theme="minecraft"] .sec-head .sec-num,
 [data-theme="minecraft"] .card .ico,
 [data-theme="minecraft"] .guide-search-wrap svg {
-  color: #D6C9A8;
+  color: #E4DCC0;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000, 0 2px 4px rgba(0,0,0,.55);
 }
 
 [data-theme="minecraft"] .pixel-frame::after {
