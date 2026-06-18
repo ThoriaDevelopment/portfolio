@@ -497,10 +497,33 @@ section {
 
 .reference-card {
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.reference-card .ref-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+.reference-card .ref-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.reference-card .ref-body .ico,
+.reference-card .ico {
+  display: none;
 }
 
 .reference-card .ref-discord {
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .reference-card .ref-discord .ref-username {
