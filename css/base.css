@@ -71,6 +71,7 @@ html.js .reveal.visible {
 .chip {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: var(--mono);
   font-size: .78rem;
@@ -82,6 +83,7 @@ html.js .reveal.visible {
   background: rgba(255,255,255,.02);
   transition: color .2s, border-color .2s, background .2s, transform .18s;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .chip svg {
@@ -535,10 +537,15 @@ section {
 .reference-card .ref-discord {
   margin-top: auto;
   padding-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
 }
 
 .reference-card .ref-discord .ref-username {
   transition: color .2s;
+  display: inline-block;
+  line-height: 1;
 }
 
 .reference-card .ref-discord.ref-pranked .ref-username {
