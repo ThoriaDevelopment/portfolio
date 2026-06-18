@@ -536,13 +536,12 @@ section {
 }
 
 .reference-card .ref-discord {
-  margin-top: auto;
+  margin: auto auto 0;
   padding-top: 16px;
   display: flex;
-  align-self: stretch;
-  width: 100%;
-  min-width: 100%;
-  min-height: 40px;
+  width: 70%;
+  min-width: 0;
+  min-height: 34px;
   justify-content: center;
   align-items: center;
   text-align: center;
