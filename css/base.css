@@ -537,14 +537,15 @@ section {
 .reference-card .ref-discord {
   margin-top: auto;
   padding-top: 16px;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
+  justify-content: center;
   align-items: center;
-  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .reference-card .ref-discord .ref-username {
   transition: color .2s;
-  display: inline-block;
   line-height: 1;
 }
 
