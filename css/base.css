@@ -488,18 +488,17 @@ section {
 
 /* ---------- references ---------- */
 .grid-references {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
-  max-width: 640px;
-  margin: 0 auto;
 }
 
 .reference-card {
-  width: 100%;
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  height: 100%;
 }
 
 .reference-card .ref-avatar {
@@ -515,6 +514,8 @@ section {
 .reference-card .ref-body {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .reference-card .ref-body .ico,
@@ -522,8 +523,18 @@ section {
   display: none;
 }
 
+.reference-card h3 {
+  font-size: 1.05rem;
+}
+
+.reference-card .desc {
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
 .reference-card .ref-discord {
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .reference-card .ref-discord .ref-username {
@@ -1220,6 +1231,7 @@ footer {
 @media (max-width: 980px) {
   .bio-grid { grid-template-columns: 1fr; gap: 28px; }
   .grid-skills { grid-template-columns: repeat(2, 1fr); }
+  .grid-references { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(3, 1fr); }
   .kleos { grid-template-columns: 1fr; }
   .kleos-thumb { width: 240px; max-width: none; }
@@ -1316,6 +1328,7 @@ footer {
   .sound-toggle, .theme-toggle { margin-left: auto; }
   .nav .btn { margin-left: 10px; }
   .grid-skills { grid-template-columns: 1fr; }
+  .grid-references { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .hero { padding: 100px 0 60px; }
   .hero-name-row { gap: 14px; }
