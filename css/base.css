@@ -537,11 +537,13 @@ section {
 
 .reference-card .ref-discord {
   margin: auto auto 0;
+  padding: 0 14px;
   padding-top: 16px;
   display: flex;
   width: 100%;
-  min-width: 0;
-  min-height: 28px;
+  height: 36px;
+  min-height: 36px;
+  line-height: 1;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -550,13 +552,17 @@ section {
 
 .reference-card .ref-discord svg {
   flex: none;
-  display: block;
+  display: flex;
+  width: 15px;
+  height: 15px;
+  align-self: center;
 }
 
 .reference-card .ref-discord .ref-username {
   transition: color .2s;
   line-height: 1;
-  display: inline-flex;
+  height: 100%;
+  display: flex;
   align-items: center;
 }
 
