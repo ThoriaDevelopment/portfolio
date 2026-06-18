@@ -558,6 +558,7 @@ section {
   line-height: 1;
   display: inline-flex;
   align-items: center;
+  font-size: 1.05rem;
 }
 
 .reference-card .ref-discord.ref-pranked .ref-username {
