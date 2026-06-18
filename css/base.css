@@ -516,6 +516,7 @@ section {
 .reference-card .ref-body {
   flex: 1;
   min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -538,15 +539,26 @@ section {
   margin-top: auto;
   padding-top: 16px;
   display: flex;
+  align-self: stretch;
   width: 100%;
+  min-width: 100%;
+  min-height: 40px;
   justify-content: center;
   align-items: center;
+  text-align: center;
   box-sizing: border-box;
+}
+
+.reference-card .ref-discord svg {
+  flex: none;
+  display: block;
 }
 
 .reference-card .ref-discord .ref-username {
   transition: color .2s;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .reference-card .ref-discord.ref-pranked .ref-username {
