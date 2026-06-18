@@ -14,19 +14,24 @@ export function initReferences() {
     let finished = false;
     let copiedTimer = null;
 
+    function displayText() {
+      if (finished) return realText;
+      return clicks === 3 ? prankText : realText;
+    }
+
     function copyAndPrank(e) {
       if (e) e.stopPropagation();
 
       // Always copy the real username, even when the label shows the prank.
       copyToClipboard(realName).then((ok) => {
         if (ok) {
+          const restoreText = displayText();
           btn.classList.add('copied');
-          const original = label.textContent;
           label.textContent = 'Copied!';
           clearTimeout(copiedTimer);
           copiedTimer = setTimeout(() => {
             btn.classList.remove('copied');
-            label.textContent = original;
+            label.textContent = restoreText;
           }, 1200);
         }
       });
