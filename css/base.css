@@ -536,34 +536,28 @@ section {
 }
 
 .reference-card .ref-discord {
-  margin: auto auto 0;
-  padding: 0 14px;
-  padding-top: 16px;
-  display: flex;
+  margin-top: auto;
+  padding: 8px 14px;
+  display: inline-flex;
   width: 100%;
-  height: 36px;
-  min-height: 36px;
-  line-height: 1;
   justify-content: center;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
+  line-height: 1;
 }
 
 .reference-card .ref-discord svg {
   flex: none;
-  display: flex;
-  width: 15px;
-  height: 15px;
-  align-self: center;
+  display: block;
 }
 
 .reference-card .ref-discord .ref-username {
   transition: color .2s;
   line-height: 1;
-  height: 100%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  vertical-align: middle;
 }
 
 .reference-card .ref-discord.ref-pranked .ref-username {
